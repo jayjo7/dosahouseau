@@ -1,0 +1,153 @@
+<template name="homePage">
+<body style="background-image:url(img/back.jpg)">
+<header class="shadow" >
+  <div id="logo"><img  src="img/dosa-logo2.png" width="100" alt="Homepage"></div>
+  <div id="cd-hamburger-menu"><a class="cd-img-replace" href="#0">Menu</a></div>
+  <div id="cd-cart-trigger"><a class="cd-img-replace" href="#0">Cart</a></div>
+</header>
+<!-- NAVIGATIONS -->
+<nav id="main-nav">
+  <ul style="font-family: 'Montserrat';">
+    <li> <a href="#page1" class="current">Our Menu</a> </li>
+    <li> <a href="#page2" >About Us</a> </li>
+    <li> <a href="#page3">Catering</a> </li>
+    <li> <a href="#page4">Find Us</a> </li>
+  </ul>
+</nav>
+<!-- NAVIGATIONS END --> 
+<!-- Main Page START -->
+<main>
+  <div id="masthead" style="background-image:url(img/ghee.jpg); background-position:center; background-size:cover; height:300px" >
+    <div class="container"  align="center">
+      <div class="row">
+        <div class="col-md-7" style="color:white">
+          <h1 id="page0" style="font-family: 'Rock Salt', sans-serif;text-shadow: 3px 2px 4px black;">Dosa House</h1>
+          <p class="lead"  style="font-family: 'Montserrat', sans-serif;text-shadow: 1px 2px 2px black;">Quick. Fast. Food</p>
+        </div>
+      </div>
+    </div>
+    <!--/container--> 
+    
+  </div>
+</main>
+<!-- Main Content --> 
+<!-- Main > Start Menus-->
+<div class="col-xs-12" >
+  <div class="row"  id="page1">
+
+      {{#each categoryMenu}}
+
+        {{#if isMenuAvailable Value}}
+
+                    <div align="left" style="padding-left:15px;">
+                      <p>&nbsp;</p>
+                      <p>
+                      <h1 > ♨ {{ Value }} ♨ </h1>
+                      </p>
+
+            {{ #each menu Value }}
+
+                      <div class="col-lg-6" id="{{UniqueId}}">
+                        <div class="the-menu-item {{soldOut fontLine}}">
+                          <div class="image-wrap thumbnail"> <img src="http://lorempixel.com/50/50/food" alt=""> </div>
+                          <a  href="#">
+                          <div class="the-menu-body">
+                            <h4 class="xsm">{{Name}}</h4>
+                            <p class="small">{{Description}}</p>
+                          </div>
+                          </a>
+                      {{#if isItemAvailable fontLine}}  
+
+                        <div class="prices"> 
+                          <button type="button" class="fa fa-shopping-cart  btn btn-default addcart" data-toggle="tooltip" data-placement="bottom" title="Add to Order">
+                          <span class="price xsm"> {{currency Charge}} </span>  
+                          </button>
+                        </div>
+                      {{else}}
+
+                              <div class="prices"> <span class="price xsm">{{ currency Charge}}</span> </div>
+                           <div class="highlight">SOLD OUT</div>  
+                      
+                      {{/if}} 
+                        </div>
+                      </div>
+
+            {{/each}} 
+          </div>
+          <p></p>
+          {{/if}}
+
+        {{/each}}
+
+  </div>
+</div>
+<!-- About US-->
+{{>aboutUs}}
+
+<!---End About US-->
+<!-- Catering -->
+{{>catering}}
+<!---End Catering-->
+<!-- Main > End Menus --> 
+<!-- Main Page END -->
+<div id="cd-shadow-layer"></div>
+<!-- Shopping Cart -->
+<div id="cd-cart">
+  <div class="minicart-wrap">
+    <div class="minicart-body cart-toggle">
+      <p>&nbsp; </p>
+      <h2 class="xsm text-uppercase text-center"  style="font-family: 'Rock Salt';">TOGO Order</h2>
+      <ul class="minicart-list">
+        <li>
+          <div class="product-thumb"> <img src="http://lorempixel.com/30/30/food/" alt=""> </div>
+          <div class="product-name"> <a href="#">Onion Ootappa</a> </div>
+          <div class="qty-wrap"> <span class="product-quantity"> <span class="quantity">2</span> </span> <span class="amount">$48</span> </div>
+          <div class="product-remove"> <a href="#">x</a> </div>
+        </li>
+        <li>
+          <div class="product-thumb"> <img src="http://lorempixel.com/30/30/food/" alt=""> </div>
+          <div class="product-name"> <a href="#">Panner Masala Dosa</a> </div>
+          <div class="qty-wrap"> <span class="product-quantity"> <span class="quantity">2</span> serves. </span> <span class="amount">$48</span> </div>
+          <div class="product-remove"> <a href="#">x</a> </div>
+        </li>
+      </ul>
+      <div class="minicart-total"> Total <span class="amount pull-right">$120</span> </div>
+      <div class="minicart-total"> Your Details:<br>
+        <br>
+        <p>
+          <input class="text-warning" id="Phone" placeholder="Name">
+          <br>
+          <br>
+          <input type="tel" class="text-warning" id="Phone" placeholder="Phone">
+        </p>
+      </div>
+      <br>
+      <a href="#0" class="checkout-btn">Place Order</a> </div>
+  </div>
+</div>
+<!-- END Shoppingcart -->
+  <!-- FOOTER -->
+  <footer id="footer" class="footer">
+ 
+
+
+      <div class="row"   id="page4"> 
+        <!--   <div class="copyright text-center"> © 2014 Dosa Express </div>-->
+        
+        <div class="address col-xs-6"> 123 Pike Place Market,<br>
+          Australia <br>
+          <a href="tel:+1-206-345-6789" class="phone">(206) 345 6789</a> </div>
+        <div class="pull-right col-xs-6" align="right">
+          <div class="head-social"> <a href="#"><i class="fa fa-twitter fa-2x"></i></a> <br>
+            <a href="#">@dosaexpress</a> </div>
+        </div>
+      </div>
+
+  </footer>
+  <!-- END / FOOTER --> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/client/lib/js/sidecart-main.js"></script>
+<!-- Gem jQuery -->
+</body>
+
+</template>
