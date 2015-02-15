@@ -1,19 +1,20 @@
 <template name="homePage">
-<body style="background-image:url(img/back.jpg)">
 <header class="shadow" >
   <div id="logo"><img  src="img/dosa-logo2.png" width="100" alt="Homepage"></div>
   <div id="cd-hamburger-menu"><a class="cd-img-replace" href="#0">Menu</a></div>
   <div id="cd-cart-trigger"><a class="cd-img-replace" href="#0">Cart</a></div>
-</header>
+
 <!-- NAVIGATIONS -->
 <nav id="main-nav">
   <ul style="font-family: 'Montserrat';">
-    <li> <a href="#page1" class="current">Our Menu</a> </li>
-    <li> <a href="#page2" >About Us</a> </li>
-    <li> <a href="#page3">Catering</a> </li>
-    <li> <a href="#page4">Find Us</a> </li>
+    <li> <a href="#menu" >Our Menu</a> </li>
+    <li> <a href="#aboutUs" >About Us</a> </li>
+    <li> <a href="#catering">Catering</a> </li>
+    <li> <a href="#findUs">Find Us</a> </li>
   </ul>
 </nav>
+
+</header>
 <!-- NAVIGATIONS END --> 
 <!-- Main Page START -->
 <main>
@@ -29,11 +30,11 @@
     <!--/container--> 
     
   </div>
-</main>
+
 <!-- Main Content --> 
 <!-- Main > Start Menus-->
 <div class="col-xs-12" >
-  <div class="row"  id="page1">
+  <div class="row"  id="menu">
 
       {{#each categoryMenu}}
 
@@ -74,13 +75,15 @@
 
             {{/each}} 
           </div>
-          <p></p>
+          <br/>
           {{/if}}
 
         {{/each}}
 
   </div>
 </div>
+
+
 <!-- About US-->
 {{>aboutUs}}
 
@@ -90,64 +93,16 @@
 <!---End Catering-->
 <!-- Main > End Menus --> 
 <!-- Main Page END -->
+
 <div id="cd-shadow-layer"></div>
-<!-- Shopping Cart -->
-<div id="cd-cart">
-  <div class="minicart-wrap">
-    <div class="minicart-body cart-toggle">
-      <p>&nbsp; </p>
-      <h2 class="xsm text-uppercase text-center"  style="font-family: 'Rock Salt';">TOGO Order</h2>
-      <ul class="minicart-list">
-        <li>
-          <div class="product-thumb"> <img src="http://lorempixel.com/30/30/food/" alt=""> </div>
-          <div class="product-name"> <a href="#">Onion Ootappa</a> </div>
-          <div class="qty-wrap"> <span class="product-quantity"> <span class="quantity">2</span> </span> <span class="amount">$48</span> </div>
-          <div class="product-remove"> <a href="#">x</a> </div>
-        </li>
-        <li>
-          <div class="product-thumb"> <img src="http://lorempixel.com/30/30/food/" alt=""> </div>
-          <div class="product-name"> <a href="#">Panner Masala Dosa</a> </div>
-          <div class="qty-wrap"> <span class="product-quantity"> <span class="quantity">2</span> serves. </span> <span class="amount">$48</span> </div>
-          <div class="product-remove"> <a href="#">x</a> </div>
-        </li>
-      </ul>
-      <div class="minicart-total"> Total <span class="amount pull-right">$120</span> </div>
-      <div class="minicart-total"> Your Details:<br>
-        <br>
-        <p>
-          <input class="text-warning" id="Phone" placeholder="Name">
-          <br>
-          <br>
-          <input type="tel" class="text-warning" id="Phone" placeholder="Phone">
-        </p>
-      </div>
-      <br>
-      <a href="#0" class="checkout-btn">Place Order</a> </div>
-  </div>
-</div>
-<!-- END Shoppingcart -->
+</main>
   <!-- FOOTER -->
-  <footer id="footer" class="footer">
- 
 
+  {{>footer}}
 
-      <div class="row"   id="page4"> 
-        <!--   <div class="copyright text-center"> © 2014 Dosa Express </div>-->
-        
-        <div class="address col-xs-6"> 123 Pike Place Market,<br>
-          Australia <br>
-          <a href="tel:+1-206-345-6789" class="phone">(206) 345 6789</a> </div>
-        <div class="pull-right col-xs-6" align="right">
-          <div class="head-social"> <a href="#"><i class="fa fa-twitter fa-2x"></i></a> <br>
-            <a href="#">@dosaexpress</a> </div>
-        </div>
-      </div>
-
-  </footer>
   <!-- END / FOOTER --> 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="/client/lib/js/sidecart-main.js"></script>
+
 <!-- Gem jQuery -->
-</body>
+
 
 </template>
