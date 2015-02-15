@@ -2,9 +2,9 @@
 <div style="background-image:url(img/back.jpg)">
 
 <header class="shadow" >
-  <div id="logo"><img  src="img/dosa-logo2.png" width="100" alt="Homepage"></div>
+  <div id="logo"><a href="#main"><img  src="img/dosa-logo2.png" width="100" alt="Homepage" ></a></div>
   <div id="cd-hamburger-menu"><a class="cd-img-replace" href="#0">Menu</a></div>
-  <div id="cd-cart-trigger"><a class="cd-img-replace" href="#0">Cart</a></div>
+  <div id="cd-cart-trigger"><a class="cd-img-replace openCart" href="#0">Cart</a></div>
 <!-- NAVIGATIONS -->
 <nav id="main-nav">
   <ul style="font-family: 'Montserrat';">
@@ -18,7 +18,7 @@
 </header>
 <!-- NAVIGATIONS END --> 
 <!-- Main Page START -->
-<main>
+<main id="main">
   <div id="masthead" style="background-image:url(img/ghee.jpg); background-position:center; background-size:cover; height:300px" >
     <div class="container"  align="center">
       <div class="row">
@@ -117,6 +117,88 @@
 <!-- Main Page END -->
 
 <div id="cd-shadow-layer"></div>
+<!-- Shopping Cart -->
+<div id="cd-cart">
+  <div class="minicart-wrap">
+    <div class="minicart-body cart-toggle">
+      <p>&nbsp; </p>
+      <h2 class="xsm text-uppercase text-center"  style="font-family: 'Rock Salt';">TOGO Order</h2>
+      <ul class="minicart-list">
+        <li>
+          <div  class="col-xs-7"  align="left"> Mysore Masala </div>
+          <select  class="col-xs-3" name="howmany" size="1" id="howmany">
+            <option>0 [remove]</option>
+            <option selected>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+      <option>&nbsp;</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>Call for More</option>
+          </select>
+          <div class="col-xs-2 "> $7.99 </div>
+        </li>
+         <br><hr style=" border-top: 1px dotted grey;" width="90%">
+        <li>
+          <div  class="col-xs-7"  align="left"> Chili Dosa </div>
+          <select  class=" col-xs-3" name="howmany" size="1" id="howmany2">
+            <option>0 [remove]</option>
+            <option selected>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+      <option>&nbsp;</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>Call for More</option>
+          </select>
+          <div class="col-xs-2 "> $6.49 </div>
+        </li>
+         <br><hr style=" border-top: 1px dotted grey;" width="90%">
+        <li>
+          <div  class="col-xs-7"  align="left"> Mango Lassi </div>
+          <select  class=" col-xs-3" name="howmany" size="1" id="howmany3">
+            <option>0 [remove]</option>
+            <option>1</option>
+            <option selected>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+      <option>&nbsp;</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>Call for More</option>
+          </select>
+          <div class="col-xs-2 "> $6.49 </div>
+        </li>
+        <br>
+      </ul>
+      <br>
+      <div class="minicart-total" style="background-color:lightyellow;"> Total <span class="amount pull-right" >$120</span> </div>
+      <div class="minicart-total"> Your Details:<br>
+        <br>
+        <p>
+          <input class="text-warning" id="Phone" placeholder="Name">
+          <br>
+          <br>
+          <input type="tel" class="text-warning" id="Phone" placeholder="Phone">
+        </p>
+      </div>
+      <br>
+      <a href="#0" class="checkout-btn">Place Order</a> </div>
+  </div>
+</div>
+<!-- END Shoppingcart --> 
+
 </main>
   <!-- FOOTER -->
 
