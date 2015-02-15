@@ -1,9 +1,10 @@
 <template name="homePage">
+<div style="background-image:url(img/back.jpg)">
+
 <header class="shadow" >
   <div id="logo"><img  src="img/dosa-logo2.png" width="100" alt="Homepage"></div>
   <div id="cd-hamburger-menu"><a class="cd-img-replace" href="#0">Menu</a></div>
   <div id="cd-cart-trigger"><a class="cd-img-replace" href="#0">Cart</a></div>
-
 <!-- NAVIGATIONS -->
 <nav id="main-nav">
   <ul style="font-family: 'Montserrat';">
@@ -43,39 +44,60 @@
                     <div align="left" style="padding-left:15px;">
                       <p>&nbsp;</p>
                       <p>
-                      <h1 > ♨ {{ Value }} ♨ </h1>
+                          <h1 > ♨ {{ Value }} ♨ </h1>
                       </p>
 
             {{ #each menu Value }}
 
                       <div class="col-lg-6" id="{{UniqueId}}">
-                        <div class="the-menu-item {{soldOut fontLine}}">
-                          <div class="image-wrap thumbnail"> <img src="http://lorempixel.com/50/50/food" alt=""> </div>
-                          <a  href="#">
-                          <div class="the-menu-body">
-                            <h4 class="xsm">{{Name}}</h4>
-                            <p class="small">{{Description}}</p>
-                          </div>
-                          </a>
+                          <div class="the-menu-item {{soldOut fontLine}}">
+                            <div class="image-wrap thumbnail"> <img src="http://lorempixel.com/50/50/food" alt=""> </div>
+                              <a  href="#">
+                              <div class="the-menu-body">
+                                <h4 class="xsm">{{Name}}</h4>
+                                <p class="small">{{Description}}</p>
+                              </div>
+                              </a>
                       {{#if isItemAvailable fontLine}}  
 
-                        <div class="prices"> 
-                          <button type="button" class="fa fa-shopping-cart  btn btn-default addcart" data-toggle="tooltip" data-placement="bottom" title="Add to Order">
-                          <span class="price xsm"> {{currency Charge}} </span>  
-                          </button>
-                        </div>
+                            <div class="prices"> 
+                                <button type="button" class="fa fa-shopping-cart  btn btn-default addcart" data-toggle="tooltip" data-placement="bottom" title="Add to Order">
+                                  <span class="price xsm"> {{currency Charge}} </span>  
+                                </button>
+                            </div>
                       {{else}}
 
                               <div class="prices"> <span class="price xsm">{{ currency Charge}}</span> </div>
-                           <div class="highlight">SOLD OUT</div>  
+                              <div class="highlight">SOLD OUT</div>  
                       
                       {{/if}} 
-                        </div>
+                          </div>
                       </div>
 
             {{/each}} 
+                      
+
+                      {{#if idOddNumberItems Value}}
+                          <div class="col-lg-6" id="dummy">
+                            <div class="the-menu-item ">
+                                <div class="image-wrap thumbnail">  </div>
+                                  <a  href="#">
+                                      <div class="the-menu-body">
+                                        <h4 class="xsm"></h4>
+                                        <p class="small"></p>
+                                      </div>
+                                  </a>
+                                  <div class="prices"> 
+                                
+
+                                  </div>
+                             </div>     
+                      </div>
+                      {{/if}}
+
+
           </div>
-          <br/>
+
           {{/if}}
 
         {{/each}}
@@ -103,6 +125,6 @@
   <!-- END / FOOTER --> 
 
 <!-- Gem jQuery -->
-
+</div>
 
 </template>

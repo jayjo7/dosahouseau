@@ -44,6 +44,25 @@ Template.homePage.helpers({
         return '$' + Number(num).toFixed(2);
     },
 
+    idOddNumberItems: function(categoryMenu)
+    {
+    			var menuCount = Menu.find({$and : [{Category: categoryMenu}, {Name : {"$exists" : true, "$ne" : ""}}]}).count();
+    			console.log("menuCount = " + menuCount);
+    			if(menuCount === 1)
+    			{
+    				return true;
+    			}
+    			else if(menuCount > 1)
+    			{
+    				console.log("menuCount %2 = " + menuCount % 2 );
+    				if(menuCount %2 === 1)
+    					return true;
+    				else
+    					return false;
+    			}
+
+    }
+
 });
 
 Template.homePage.events({
