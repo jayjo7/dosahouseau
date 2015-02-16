@@ -127,11 +127,12 @@
         {{#each shopCart}}
         <li>
           <div class="col-xs-7"  align="left"> {{productname}}</div>
+          <div><input placeholder="1" class="col-xs-1 prodqty" size="2" maxlength="2" /></div>
           <div class="col-xs-2"> <span class="amount pull-right" >{{currency price}} </span></div>
         </li>  
         {{/each}}
       </ul>
-      <br>
+      <br><br>
       <div class="minicart-total" style="background-color:lightyellow;">Total (Including Tax) <span class="amount pull-right" >{{currency shopCart.total}}</span> </div>
       <div class="minicart-total"> Your Details:<br>
         <br>
