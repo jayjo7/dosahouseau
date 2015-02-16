@@ -62,6 +62,73 @@ Template.cart.helpers({
 
 Template.cart.events({
 
+	'submit form': function(event){
+        event.preventDefault();
+        console.log("Order form submitted");
+        console.log(event.type);
+        var contactInfo = {};
+
+        contactInfo.phoneNumber = event.target.intputPhoneNumber.value;
+        contactInfo.email=event.target.inputEmail.value;
+        //contactInfo.messageToKitchen = event.target.messageToKitchen.value;
+        contactInfo.contactName = event.target.contactName.value;
+        console.log(contactInfo.phoneNumber);
+        console.log(contactInfo.email);
+        //console.log(contactInfo.messageToKitchen);
+        console.log(contactInfo.contactName);
+            var sessid = Session.get('appUUID');
+            console.log("Confirming orders... " + sessid);
+
+         var contact
+
+        console.log("contact = " + contactInfo);
+
+        Meteor.call('getNextSequenceValue',function(error, result){
+
+            if(error)
+            {
+                console.log("Trouble getting the next sequence number");
+            }
+            else
+            {
+                var sequence = result;
+       
+                for(var key in sequence)
+                    {
+                        console.log("cart.js : " +key + " = " +sequence[key]);
+                    }
+
+                Meteor.call('orderItems',sessid, contactInfo, sequence, function(error, result){
+
+                    if(error)
+                    {
+                        if(result)
+                        {
+                            console.log("Could not insert the order for the session  = " + sessid + "Order = " + JSON.stringify(result, null, 4));
+                        }
+                        else
+                        {
+                            console.log("Could not insert the order for the session  = " + sessid );
+                        }
+
+                    }
+                    else
+                    {
+                        console.log("sessid = " + sessid);
+                        console.log("sequence._id= " + sequence._id);
+
+
+                        Router.go('orderConfirmation',  {UniqueId: sequence._id});
+
+                    }
+
+                });
+            } 
+
+        });
+    },
+
+
 	'click .removeShadow':function (evt,tmpl)
     {
     	//evt.preventDefault();

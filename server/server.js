@@ -129,25 +129,23 @@ Meteor.methods({
 				{
 					totalItemCount += Number(cartitems.qty);
 
+					for(key in cartitems)
+					{
+						console.log(key + "  =  " + cartitems[key]);
+					}
 
-					//console.log("cartitems.product = " + cartitems.product);
-					var product = Menu.findOne({_id: cartitems.product});
-    				//console.log("Product Name = " + product.Name);
 
-					subTotal +=  (Number(product.Charge) * cartitems.qty);
-					itemString = itemString + cartitems.qty + " - " + product.Name +'\n';
+					subTotal +=  (Number(cartitems.Charge) * cartitems.qty);
+					itemString = itemString + cartitems.qty + " - " + cartitems.Name +'\n';
    					items.push(
    					{ 
-        				"name" : product.Name,
+        				"name" : cartitems.Name,
         				"qty"  : cartitems.qty
 					});
 
 				cartitems.UniqueId = order.UniqueId;
-				cartitems.Charge =product.Charge;
-				cartitems.Name=product.Name;
-				cartitems.product=cartitems.product;
 
-				OrderedItems.update({product:product, UniqueId:order.UniqueId},cartitems,{upsert:true});
+				OrderedItems.update({product:cartitems.product, UniqueId:order.UniqueId},cartitems,{upsert:true});
 
 
    			});

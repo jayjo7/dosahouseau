@@ -26,19 +26,25 @@
       {{#if shopCart.itemCount }}
 
       <div class="minicart-total" style="background-color:lightyellow;">Total (Including Tax) <span class="amount pull-right" >{{currency shopCart.total}}</span> </div>
-      <div class="minicart-total"> Your Details:<br>
+
+      <form id="contactInfoForm">
+
+        <div class="minicart-total"> Your Contact Information:<br>
+          <br>
+          <p>
+              <input class="text-warning" id="contactName" name="contactName" placeholder="Name">
+              <br>
+              <br>
+              <input type="email" class="text-warning" id="inputEmail" name="email" placeholder="Email">
+              <br>
+              <br>
+              <input type="tel" class="text-warning" id="intputPhoneNumber" name="phoneNumber"  placeholder="Phone Number">
+            </p>
+        </div>
         <br>
-        <p>
-          <input class="text-warning" id="name" placeholder="Name">
-          <br>
-          <br>
-          <input type="tel" class="text-warning" id="Phone" placeholder="Phone">
-          <br>
-          <input type="email" class="text-warning" id="email" placeholder="Email">
-        </p>
-      </div>
-      <br>
-      <a href="#0" class="checkout-btn">Place Order</a> 
+        <button type="submit" class="btn btn-link checkout-btn placeOrder">Place Order</button>
+      </form>
+
       {{/if}}
 
     </div>  

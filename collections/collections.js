@@ -10,3 +10,5 @@ CartItems = new Mongo.Collection('cartitems');
 Counters = new Mongo.Collection('counters');
 
 Content = new  Mongo.Collection('Content');
+
+OrderedItems = new Mongo.Collection('ordereditems');
