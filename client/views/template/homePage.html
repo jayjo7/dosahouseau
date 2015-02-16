@@ -124,66 +124,15 @@
       <p>&nbsp; </p>
       <h2 class="xsm text-uppercase text-center"  style="font-family: 'Rock Salt';">TOGO Order</h2>
       <ul class="minicart-list">
+        {{#each shopCart}}
         <li>
-          <div  class="col-xs-7"  align="left"> Mysore Masala </div>
-          <select  class="col-xs-3" name="howmany" size="1" id="howmany">
-            <option>0 [remove]</option>
-            <option selected>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-      <option>&nbsp;</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>Call for More</option>
-          </select>
-          <div class="col-xs-2 "> $7.99 </div>
-        </li>
-         <br><hr style=" border-top: 1px dotted grey;" width="90%">
-        <li>
-          <div  class="col-xs-7"  align="left"> Chili Dosa </div>
-          <select  class=" col-xs-3" name="howmany" size="1" id="howmany2">
-            <option>0 [remove]</option>
-            <option selected>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-      <option>&nbsp;</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>Call for More</option>
-          </select>
-          <div class="col-xs-2 "> $6.49 </div>
-        </li>
-         <br><hr style=" border-top: 1px dotted grey;" width="90%">
-        <li>
-          <div  class="col-xs-7"  align="left"> Mango Lassi </div>
-          <select  class=" col-xs-3" name="howmany" size="1" id="howmany3">
-            <option>0 [remove]</option>
-            <option>1</option>
-            <option selected>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-      <option>&nbsp;</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>Call for More</option>
-          </select>
-          <div class="col-xs-2 "> $6.49 </div>
-        </li>
-        <br>
+          <div class="col-xs-7"  align="left"> {{productname}}</div>
+          <div class="col-xs-2"> <span class="amount pull-right" >{{currency price}} </span></div>
+        </li>  
+        {{/each}}
       </ul>
       <br>
-      <div class="minicart-total" style="background-color:lightyellow;"> Total <span class="amount pull-right" >$120</span> </div>
+      <div class="minicart-total" style="background-color:lightyellow;">Total (Including Tax) <span class="amount pull-right" >{{currency shopCart.total}}</span> </div>
       <div class="minicart-total"> Your Details:<br>
         <br>
         <p>
