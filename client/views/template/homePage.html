@@ -1,21 +1,7 @@
 <template name="homePage">
 <div style="background-image:url(img/back.jpg)">
 
-<header class="shadow" >
-  <div id="logo"><a href="#main"><img  src="img/dosa-logo2.png" width="100" alt="Homepage" ></a></div>
-  <div id="cd-hamburger-menu"><a class="cd-img-replace hamburgerMenu" href="#0">Menu</a></div>
-  <div id="cd-cart-trigger"><a class="cd-img-replace openCart" href="#0">Cart</a></div>
-<!-- NAVIGATIONS -->
-<nav id="main-nav">
-  <ul style="font-family: 'Montserrat';">
-    <li> <a href="#menu" >Our Menu</a> </li>
-    <li> <a href="#aboutUs" >About Us</a> </li>
-    <li> <a href="#catering">Catering</a> </li>
-    <li> <a href="#findUs">Find Us</a> </li>
-  </ul>
-</nav>
 
-</header>
 <!-- NAVIGATIONS END --> 
 <!-- Main Page START -->
 <main id="main">
@@ -106,57 +92,15 @@
 </div>
 
 
-<!-- About US-->
-{{>aboutUs}}
 
-<!---End About US-->
-<!-- Catering -->
-{{>catering}}
-<!---End Catering-->
 <!-- Main > End Menus --> 
 <!-- Main Page END -->
 
-<div id="cd-shadow-layer"></div>
-<!-- Shopping Cart -->
-<div id="cd-cart">
-  <div class="minicart-wrap">
-    <div class="minicart-body cart-toggle">
-      <p>&nbsp; </p>
-      <h2 class="xsm text-uppercase text-center"  style="font-family: 'Rock Salt';">TOGO Order</h2>
-      <ul class="minicart-list">
-        {{#each shopCart}}
-        <li>
-          <div class="col-xs-7"  align="left"> {{productname}}</div>
-          <div><input placeholder="1" class="col-xs-1 prodqty" size="2" maxlength="2" /></div>
-          <div class="col-xs-2"> <span class="amount pull-right" >{{currency price}} </span></div>
-        </li>  
-        {{/each}}
-      </ul>
-      <br><br>
-      <div class="minicart-total" style="background-color:lightyellow;">Total (Including Tax) <span class="amount pull-right" >{{currency shopCart.total}}</span> </div>
-      <div class="minicart-total"> Your Details:<br>
-        <br>
-        <p>
-          <input class="text-warning" id="Phone" placeholder="Name">
-          <br>
-          <br>
-          <input type="tel" class="text-warning" id="Phone" placeholder="Phone">
-        </p>
-      </div>
-      <br>
-      <a href="#0" class="checkout-btn">Place Order</a> </div>
-  </div>
-</div>
-<!-- END Shoppingcart --> 
+
 
 </main>
-  <!-- FOOTER -->
 
-  {{>footer}}
 
-  <!-- END / FOOTER --> 
-
-<!-- Gem jQuery -->
 </div>
 
 </template>
