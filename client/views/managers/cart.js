@@ -4,7 +4,7 @@ Template.cart.helpers({
     	{
         	return '$' + Number(num).toFixed(2);
     	},
-    	
+
     shopCart: function()
     {
     	
@@ -12,16 +12,16 @@ Template.cart.helpers({
 
             var shopCart = [];
             var sessid = Meteor.default_connection._lastSessionId;
-            console.log("sessid =  " +sessid);
+            console.log("shopCart:sessid =  " +sessid);
             var cartItems = CartItems.find({session: sessid});
             shopCart.itemCount = cartItems.count();
             var total = 0;
 
             cartItems.forEach(function(cartitem){
                 var item = _.extend(cartitem,{});
-                console.log("cartitem.product =  " +cartitem.product);
+                console.log("shopCart:cartitem.product =  " +cartitem.product);
                 var product = Menu.findOne({UniqueId:cartitem.product});
-                console.log("product =  " + product);
+                console.log("shopCart:product =  " + product);
 
                 var charge = product.Charge;
 
