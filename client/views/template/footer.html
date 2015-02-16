@@ -4,11 +4,14 @@
       <div class="row"   id="address"> 
         <div class="copyright col-xs-12 text-center">Powered by Websheets&#8482; </div>
         
-        <div class="address col-xs-12"> 123 Pike Place Market,<br>
-          Australia <br>
-          <a href="tel:+1-206-345-6789" class="phone">(206) 345 6789</a> 
+        <div class="address pull-left col-xs-6"> {{address.Value}}
+          <br>
+          Phone: <a href="tel:{{phoneNumber.Value}}" class="phone">{{phoneNumber.Value}}</a> 
+          <br>
+          Fax: <a href="tel:{{faxNumber.Value}}" class="phone">{{faxNumber.Value}}</a> 
+
         </div>
-        <div class="pull-right col-xs-12" align="right">
+        <div class="pull-right col-xs-6" align="right">
           <div class="head-social"> <a href="#"><i class="fa fa-twitter fa-2x"></i></a> <br>
             <a href="#">@dosaexpress</a> </div>
         </div>

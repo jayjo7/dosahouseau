@@ -13,3 +13,4 @@ npm-container
 iron:router
 sacha:spin
 jquery
+underscore

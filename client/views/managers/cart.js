@@ -5,41 +5,52 @@ Template.cart.helpers({
         	return '$' + Number(num).toFixed(2);
     	},
 
+    sessionId:function()
+    {
+    	console.log("sessionId: " +  Session.get('appUUID'))
+    	return Session.get('appUUID');
+    	//return Meteor.call('getUUID');
+
+    	//console.log("sessionId: " +  Meteor.call('getSessionId'));
+    	//return Meteor.connection._lastSessionId;
+    }	,
+
     shopCart: function()
     {
-    	
-            console.log("In Cart Temlate");
+    	   sessid = Session.get('appUUID');
+             
+           console.log("shopCart:sessid =  " +sessid);
+           // return  CartItems.find({session:sessid})
 
-            var shopCart = [];
-            var sessid = Meteor.default_connection._lastSessionId;
-            console.log("shopCart:sessid =  " +sessid);
-            var cartItems = CartItems.find({session: sessid});
-            shopCart.itemCount = cartItems.count();
-            var total = 0;
+		    //console.log("In Cart Temlate");
 
-            cartItems.forEach(function(cartitem){
-                var item = _.extend(cartitem,{});
-                console.log("shopCart:cartitem.product =  " +cartitem.product);
-                var product = Menu.findOne({UniqueId:cartitem.product});
-                console.log("shopCart:product =  " + product);
+		    var shopCart = [];
+		   // var sessid = Meteor.default_connection._lastSessionId;
+		    var cartItems = CartItems.find({session: sessid});
+		    shopCart.itemCount = cartItems.count();
+		    var total = 0;
 
-                var charge = product.Charge;
+		    cartItems.forEach(function(cartItem){
+		        var item = _.extend(cartItem,{});
 
-                cartitem.productname = product.Name;
-                cartitem.price = (Number(charge) * cartitem.qty);
-                total += cartitem.price;
-                shopCart.push(cartitem);
-            });
-            shopCart.subtotal = total;
-            shopCart.tax = shopCart.subtotal * .092;
+		        cartItem.price = (Number(cartItem.Charge) * cartItem.qty);
+		        total += cartItem.price;
+		        shopCart.push(cartItem);
+		    });
+		    shopCart.subtotal = total;
+		    shopCart.tax = shopCart.subtotal * .092;
 
-            shopCart.total = shopCart.subtotal + shopCart.tax;
+		    shopCart.total = shopCart.subtotal + shopCart.tax;
 
-            console.log("shopCart = " + shopCart);
+		    for(key in shopCart)
+		    {
+		    	console.log(key + " = " + shopCart[key]) ;
+		    }
 
 
-            return shopCart;
-            
+		    return shopCart;
+
+          
        
 
     }
@@ -53,7 +64,7 @@ Template.cart.events({
 
 	'click .removeShadow':function (evt,tmpl)
     {
-    	evt.preventDefault();
+    	//evt.preventDefault();
     	var $L = 1200,
 		$menu_navigation = $('#main-nav'),
 		$cart_trigger = $('#cd-cart-trigger'),

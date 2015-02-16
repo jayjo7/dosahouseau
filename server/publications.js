@@ -3,11 +3,11 @@ Meteor.publish('menu', function(){
 	}
 	);	
 	
-Meteor.publish('cartItems', function(sessid){
+Meteor.publish('cartItems', function(){
 
-	console.log("In Publish: sessid " + sessid );
+	console.log("Count CartItems " + CartItems.find().count());
 
-	return  CartItems.find({session: sessid });
+	return  CartItems.find();
 
 	}
 	);	

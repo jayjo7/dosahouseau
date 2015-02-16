@@ -12,6 +12,11 @@ Meteor.startup(function() {
 		$navigation.insertAfter('header');
 	}
 
+	Meteor.call('getUUID', function(error, result){
+    	console.log("UUID for this session: " +  result);
+    	Session.set('appUUID', result);
+
+    	});
 	console.log("In Startup");
 }
 

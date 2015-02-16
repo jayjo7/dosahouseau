@@ -1,6 +1,18 @@
 Meteor.methods({
 
-	addToCart:function(qty, product, session){
+
+  getUUID: function () {
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (d + Math.random()*16)%16 | 0;
+        d = Math.floor(d/16);
+        return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+    });
+    console.log("uuid = " + uuid);
+    return uuid;
+},
+
+	addToCart:function(qty, product, session,Name, Category, Charge){
 		if(qty>0)
 		{
 			qty = Number (qty);
@@ -20,7 +32,7 @@ Meteor.methods({
 			}
 
 		
-			CartItems.update({product:product, session:session},{qty:qty, product:product, session:session},{upsert:true});
+			CartItems.update({product:product, session:session},{qty:qty, product:product, session:session,Name:Name, Category:Category, Charge:Charge},{upsert:true});
 
 			//CartItems.insert({qty:qty, product:product, session:session});
 			console.log('Added the session = ' + session);
