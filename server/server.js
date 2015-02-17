@@ -101,7 +101,7 @@ Meteor.methods({
 			order.OrderNumber=sequence.orderNumber;
 			order.UniqueId=sequence._id;
 
-			var now =moment().format('MM/DD/YYYY hh:mm:ss A');
+			var now =moment().utcOffset(11).format('MM/DD/YYYY hh:mm:ss A');
 
 			console.log('now = ' + now);
 
