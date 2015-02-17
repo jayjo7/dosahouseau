@@ -118,7 +118,7 @@ Template.cart.events({
                         console.log("sequence._id= " + sequence._id);
 
 
-                        Router.go('orderConfirmation',  {UniqueId: sequence._id});
+                        Router.go('confirmation',  {UniqueId: sequence._id});
 
                     }
 
