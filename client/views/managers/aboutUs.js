@@ -3,25 +3,31 @@ Template.aboutUs.helpers({
 		aboutUs: function()
 	{
 
-		return Content.find({$and : [{Key: "AboutUs"}, {Value : {"$exists" : true, "$ne" : ""}}]});
+		var aboutUs = Content.findOne({$and : [{Key: "AboutUs"}, {Value : {"$exists" : true, "$ne" : ""}}]})
+
+
+
+				console.log('aboutUs = ' + aboutUs);
+
+
+				var aboutUsValue = aboutUs['Value'];
+				console.log(' About value = ' + aboutUsValue);
+
+				var aboutUsArray = aboutUsValue.split('\n\n' );
+
+				//for(key in aboutUsArray)
+				//{
+				//	console.log(key + " = " + aboutUsArray[key]);
+				//}
+
+				return aboutUsArray;
+			
+
+
+
+
 
 	},
 
-	address:function(){
 
-		return Content.find({$and : [{Key: "Address"}, {Value : {"$exists" : true, "$ne" : ""}}]});
-
-	},
-
-		phoneNumber:function(){
-		
-		return Content.find({$and : [{Key: "PhoneNumber"}, {Value : {"$exists" : true, "$ne" : ""}}]});
-
-	}
-	,
-			faxNumber:function(){
-		
-		return Content.find({$and : [{Key: "FaxNumber"}, {Value : {"$exists" : true, "$ne" : ""}}]});
-
-	}
 });

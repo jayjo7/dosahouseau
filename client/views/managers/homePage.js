@@ -3,7 +3,7 @@ Template.homePage.helpers({
 	categoryMenu: function()
 	{
 
-		return Content.find({$and : [{Key: "CategoryMenu"}, {Value : {"$exists" : true, "$ne" : ""}}]});
+		return Settings.find({$and : [{Key: "CategoryMenu"}, {Value : {"$exists" : true, "$ne" : ""}}]});
 
 	},
 	menu:function(categoryMenu)

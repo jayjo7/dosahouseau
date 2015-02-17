@@ -11,4 +11,6 @@ Counters = new Mongo.Collection('counters');
 
 Content = new  Mongo.Collection('Content');
 
+Settings = new  Mongo.Collection('Settings');
+
 OrderedItems = new Mongo.Collection('ordereditems');

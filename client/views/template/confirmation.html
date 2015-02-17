@@ -16,7 +16,7 @@
 
               {{#each confirmation}}
 
-                {{Value}} <br /><br />
+                {{this}} <br /><br />
 
               {{/each}}
             </td>
@@ -109,53 +109,26 @@
                     </td>
                   </tr>
 
+                  {{#each orderedCart UniqueId}}
 
                   <tr>
                     <td class="item-col item">
                       <table cellspacing="0" cellpadding="0" width="100%">
                         <tr>
-<!--    If we have dosa images                       
-<td class="mobile-hide-img">
-<img width="110" height="92" src="http://placehold.it/110x92" alt="item1" />
-                          </td>
-                          -->
-                          <td class="product"><span style="color: #4d4d4d; font-weight:bold;">Masala Dosa</span> <br />
-No Onions </td>
+
+                          <td class="product"><span style="color: #4d4d4d; font-weight:bold;">{{Name}}</span>  </td>
                         </tr>
                       </table>
                     </td>
                     <td class="item-col quantity">
-                      1
+                      {{qty}}
                     </td>
                     <td class="item-col">
-                      $10.50
+                      {{currency price}}
                     </td>
                   </tr>
 
-
-                  <tr>
-                    <td class="item-col item">
-                      <table cellspacing="0" cellpadding="0" width="100%">
-                        <tr>
-<!--        If we have lassi images                  
-<td class="mobile-hide-img">
-                            <img width="110" height="92" src="http://placehold.it/110x92" alt="item2" />
-                          </td>-->
-                          <td class="product">
-                            <span style="color: #4d4d4d; font-weight: bold;">Mango Lassi</span> <br />
-                            <!--Comments-->
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                    <td class="item-col quantity">
-                      1
-                    </td>
-                    <td class="item-col price">
-                      $3.50
-                    </td>
-                  </tr>
-
+        {{/each}}
 
                   <tr>
                     <td class="item-col item mobile-row-padding"></td>
@@ -171,10 +144,10 @@ No Onions </td>
                       <span class="total-space">Tax</span> <br />
                       <span class="total-space">Delivery Fee</span> <br />
                     <span class="total-space" style="font-weight: bold; color: #4d4d4d">Total</span></td>
-                    <td class="item-col price" style="text-align: left; border-top: 1px solid #cccccc;"><span class="total-space">$13.02</span> <br />
-                      <span class="total-space">$0.75</span> <br />
+                    <td class="item-col price" style="text-align: left; border-top: 1px solid #cccccc;"><span class="total-space">{{getSubTotal}}</span> <br />
+                      <span class="total-space">{{getTax}}</span> <br />
                       <span class="total-space">$0.00</span> <br />
-                    <span class="total-space" style="font-weight:bold; color: #4d4d4d">$15.77</span></td>
+                    <span class="total-space" style="font-weight:bold; color: #4d4d4d">{{getTotal}}</span></td>
                   </tr>  
                 </table>
               </td>

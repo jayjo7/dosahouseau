@@ -34,6 +34,12 @@ Meteor.publish('ordereditems', function(UniqueId){
 	return Content.find();
 	}
 	);	
+
+    Meteor.publish('settings', function(){
+	console.log("Settings = " + Settings.find().count());
+	return Settings.find();
+	}
+	);	
 	
 
 
