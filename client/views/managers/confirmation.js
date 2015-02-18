@@ -19,7 +19,7 @@ Template.confirmation.helpers({
      confirmation: function()
 	{
 
-		var confirmation = Settings.findOne({$and : [{Key: "Confirmation"}, {Value : {"$exists" : true, "$ne" : ""}}]});
+		var confirmation = Settings.findOne({$and : [{Key: "confirmation"}, {Value : {"$exists" : true, "$ne" : ""}}]});
 
 		var value = confirmation['Value'];
 		console.log(' confirmation value = ' + value);
@@ -37,19 +37,19 @@ Template.confirmation.helpers({
 
 		address:function(){
 
-		return Settings.findOne({$and : [{Key: "Address"}, {Value : {"$exists" : true, "$ne" : ""}}]});
+		return Settings.findOne({$and : [{Key: "address"}, {Value : {"$exists" : true, "$ne" : ""}}]});
 
 	},
 
 		phoneNumber:function(){
 		
-		return Settings.findOne({$and : [{Key: "PhoneNumber"}, {Value : {"$exists" : true, "$ne" : ""}}]});
+		return Settings.findOne({$and : [{Key: "phone_number"}, {Value : {"$exists" : true, "$ne" : ""}}]});
 
 	}
 	,
 			faxNumber:function(){
 		
-		return Settings.findOne({$and : [{Key: "FaxNumber"}, {Value : {"$exists" : true, "$ne" : ""}}]});
+		return Settings.findOne({$and : [{Key: "fax_number"}, {Value : {"$exists" : true, "$ne" : ""}}]});
 
 	}
 	,
