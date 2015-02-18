@@ -4,13 +4,18 @@
 <div id="cd-cart">
   <div class="minicart-wrap">
     <div class="minicart-body cart-toggle">
+<form id="contactInfoForm">
       <p>&nbsp; </p>
       <h2 class="xsm text-uppercase text-center"  style="font-family: 'Rock Salt';">TOGO Order</h2>
       <ul class="minicart-list">
+
         {{#each shopCart}}
         <li>
           <div class="col-xs-7"  align="left"> {{Name}}</div>
-          <div><input class="col-xs-1 prodqty" size="2" maxlength="2" value={{qty}}/></div>
+         <!-- <div><input  class="col-xs-1 text-warning prodqty_{{product}}" size="2" maxlength="2" value={{qty}}/></div>-->
+
+          <div><input type="number" maxlength="2" class="text-warning product_{{product}}" size="2" min="1" max="10" id="product_{{product}}" name="product_{{product}}" value="{{qty}}"></div>
+
           <div class="col-xs-2"> <span class="amount pull-right" >{{currency price}} </span></div>
         </li>  
         <br><hr style=" border-top: 1px dotted grey;" width="90%">
@@ -23,11 +28,12 @@
       </ul>
       <br><br>
 
-      {{#if shopCart.itemCount }}
+    {{#if shopCart.itemCount }}
+
 
       <div class="minicart-total" style="background-color:lightyellow;">Total (Including Tax) <span class="amount pull-right" >{{currency shopCart.total}}</span> </div>
 
-      <form id="contactInfoForm">
+      
 
         <div class="minicart-total"> Your Contact Information:<br>
           <br>
@@ -43,10 +49,10 @@
         </div>
         <br>
         <button type="submit" class="btn btn-link checkout-btn placeOrder">Place Order</button>
-      </form>
+
 
       {{/if}}
-
+      </form>
     </div>  
   </div>
 </div>
