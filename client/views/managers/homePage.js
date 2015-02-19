@@ -1,5 +1,16 @@
 Template.homePage.helpers({
 
+    isDrink:function(categoryMenu)
+    {
+        console.log('isDrink:categoryMenu = ' +categoryMenu);
+        if('Drinks' === categoryMenu)
+            return true;
+        else
+            return false;
+
+
+    },
+
 	categoryMenu: function()
 	{
 

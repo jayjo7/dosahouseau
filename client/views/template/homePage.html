@@ -37,7 +37,18 @@
 
                       <div class="col-lg-6" id="{{UniqueId}}">
                           <div class="the-menu-item {{soldOut fontLine}}">
-                            <div class="image-wrap thumbnail"> <img src="http://lorempixel.com/50/50/food" alt=""> </div>
+                            <div class="image-wrap thumbnail">
+
+                              {{#if isDrink ../Value}}
+
+                                  <i style="color:grey" class="fa fa-coffee fa-2x"></i>
+
+                              {{else}}
+                                  <i style="color:grey" class="fa fa-cutlery fa-2x"></i> 
+
+                               {{/if}}   
+
+                           </div>
                               <a  href="#">
                               <div class="the-menu-body">
                                 <h4 class="xsm">{{Name}}</h4>

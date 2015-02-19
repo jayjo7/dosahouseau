@@ -39,11 +39,7 @@ img {
 Modules - reusable parts of our design
 
 -------------------------------- */
-.shadow {
--webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
--moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-}
+
 
 
 .cd-img-replace {
@@ -337,7 +333,7 @@ main {
   position: relative;
   min-height: 100%;
   background: #eeeff7;
-  padding-top: 50px;
+  padding-top: 0px;
   z-index: 1;
 }
 @media only screen and (min-width: 768px) {
