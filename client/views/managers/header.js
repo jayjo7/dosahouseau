@@ -1,6 +1,5 @@
 Template.header.events({
 
-
     'click .openCart': function(evt,tmpl)
     {
     	//evt.preventDefault();
