@@ -49,12 +49,33 @@
       <center>
         <table cellspacing="0" cellpadding="0" width="100%" class="w320">
           <tr>
-            <td class="header-lg"  style="font-family: 'Rock Salt';"> {{customerName UniqueId}} , Thank You !</td>
+            <td class="header-lg"  style="font-family: 'Rock Salt';"> {{customerName UniqueId}} ,
+
+              {{#if isReady UniqueId}}
+
+                Your Order is Ready !
+
+              {{else}}
+
+                {{#if isDelivered UniqueId}}
+
+                Your Order delivered !
+
+                {{else}}
+
+                  Thank You !
+
+                {{/if}}
+
+              {{/if}}
+
+
+             </td>
           </tr>
           <tr>
             <td class="free-text">              
 
-              {{#each confirmation}}
+              {{#each message UniqueId}}
 
                 {{this}} <br /><br />
 
@@ -80,17 +101,35 @@
                                 <img src="/img/one-on.jpg" alt="Order Placed" /><br />
                                 Order Placed</td>
 
-                               <!-- STEP TWO -->
-                              <td class="step ">
-                                <img src="/img/two.jpg" alt="In Kitchen" /><br />
-                                In Kitchen</td>
+                                {{#if isInKitchen UniqueId }}
 
-                               <!-- STEP THREE -->
-                              <td class="step">
-                                <img src="/img/three.jpg" alt="step one" /><br />
-                                <!-- ready for pickup
-                                <img src="http://www.appollo11.com/a51/email/three-on.jpg" alt="step one" /><br />-->
-                                Ready for Pickup</td>
+                                       <!-- STEP TWO -->
+                                      <td class="step ">
+                                        <img src="/img/two-on.jpg" alt="In Kitchen" /><br />
+                                        In Kitchen</td>
+                                {{else}}
+
+                               <!-- STEP TWO -->
+                                      <td class="step ">
+                                        <img src="/img/two.jpg" alt="In Kitchen" /><br />
+                                        In Kitchen</td>
+                                {{/if}}
+
+
+                                {{#if isSaleComplete UniqueId}}
+
+                                      <td class="step">
+                                      <img src="/img/three-on.jpg" alt="step one" /><br />
+                                      Ready for Pickup</td>
+
+                                {{else}}
+                                     <!-- STEP THREE -->
+                                    <td class="step">
+                                      <img src="/img/three.jpg" alt="step one" /><br />
+
+                                      Ready for Pickup</td>
+
+                                {{/if}}
 
                             </tr>
                           </table>
@@ -126,6 +165,22 @@
                             </tr>
                             
                           </table>
+
+                           {{#if isReady UniqueId}}
+                           <br/>
+  <div><!--[if mso]>
+                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:45px;v-text-anchor:middle;width:155px;" arcsize="15%" strokecolor="#ffffff" fillcolor="#ff6f6f">
+                              <w:anchorlock/>
+                              <center style="color:#ffffff;font-family:Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;">Driving Directions</center>
+                            </v:roundrect>
+                          <![endif]--><a href="https://www.google.com/maps/place/4%2F100-102+Pacific+Hwy,+Waitara+NSW+2077,+Australia" style="background-color:#ff6f6f;border-radius:5px;color:#ffffff;display:inline-block;font-family:'Cabin', Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:155px;-webkit-text-size-adjust:none;mso-hide:all;">Driving Directions</a></div>
+
+
+
+
+
+                           {{/if}}
+
                         </td>
                       </tr>
 

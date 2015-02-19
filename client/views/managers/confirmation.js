@@ -1,4 +1,58 @@
 Template.confirmation.helpers({
+	isReady: function(uniqueId)
+    {
+        console.log('getStatusNUmber:uniqueId = ' + uniqueId);
+        var order = Orders.findOne({UniqueId:uniqueId});
+        if('ready' === order.Status)
+        	return true;
+        else
+        	return false;
+
+     },
+
+     	isDelivered: function(uniqueId)
+    {
+        console.log('getStatusNUmber:uniqueId = ' + uniqueId);
+        var order = Orders.findOne({UniqueId:uniqueId});
+        if('delivered' === order.Status)
+        	return true;
+        else
+        	return false;
+
+     },
+
+          	isInProcess: function(uniqueId)
+    {
+        console.log('getStatusNUmber:uniqueId = ' + uniqueId);
+        var order = Orders.findOne({UniqueId:uniqueId});
+        if('inProcess' === order.Status)
+        	return true;
+        else
+        	return false;
+
+     },
+
+     isInKitchen: function(uniqueId)
+    {
+        console.log('getStatusNUmber:uniqueId = ' + uniqueId);
+        var order = Orders.findOne({UniqueId:uniqueId});
+        if('inProcess' === order.Status || 'delivered' === order.Status || 'ready' === order.Status)
+        	return true;
+        else
+        	return false;
+
+     },
+
+     isSaleComplete: function(uniqueId)
+    {
+        console.log('getStatusNUmber:uniqueId = ' + uniqueId);
+        var order = Orders.findOne({UniqueId:uniqueId});
+        if( 'delivered' === order.Status || 'ready' === order.Status)
+        	return true;
+        else
+        	return false;
+
+     },
 
     order: function(uniqueId)
     {
@@ -16,10 +70,22 @@ Template.confirmation.helpers({
 
      },
 
-     confirmation: function()
+     message: function(uniqueId)
 	{
+		console.log('message:uniqueId = ' + uniqueId);
+        var order = Orders.findOne({UniqueId:uniqueId});
+        var messageKey='message_confirmation';
+        if('ready' === order.Status)
 
-		var confirmation = Settings.findOne({$and : [{Key: "confirmation"}, {Value : {"$exists" : true, "$ne" : ""}}]});
+        	messageKey = 'message_ready';
+        	
+        else
+		if('delivered' === order.Status)
+
+			messageKey = 'message_delivered';
+
+
+		var confirmation = Settings.findOne({$and : [{Key: messageKey}, {Value : {"$exists" : true, "$ne" : ""}}]});
 
 		var value = confirmation['Value'];
 		console.log(' confirmation value = ' + value);
