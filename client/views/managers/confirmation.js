@@ -1,7 +1,7 @@
 Template.confirmation.helpers({
 	isReady: function(uniqueId)
     {
-        console.log('getStatusNUmber:uniqueId = ' + uniqueId);
+        console.log('isReady:uniqueId = ' + uniqueId);
         var order = Orders.findOne({UniqueId:uniqueId});
         if('ready' === order.Status)
         	return true;
@@ -12,7 +12,7 @@ Template.confirmation.helpers({
 
      	isDelivered: function(uniqueId)
     {
-        console.log('getStatusNUmber:uniqueId = ' + uniqueId);
+        console.log('isDelivered:uniqueId = ' + uniqueId);
         var order = Orders.findOne({UniqueId:uniqueId});
         if('delivered' === order.Status)
         	return true;
@@ -23,7 +23,7 @@ Template.confirmation.helpers({
 
           	isInProcess: function(uniqueId)
     {
-        console.log('getStatusNUmber:uniqueId = ' + uniqueId);
+        console.log('isInProcess:uniqueId = ' + uniqueId);
         var order = Orders.findOne({UniqueId:uniqueId});
         if('inProcess' === order.Status)
         	return true;
@@ -34,7 +34,7 @@ Template.confirmation.helpers({
 
      isInKitchen: function(uniqueId)
     {
-        console.log('getStatusNUmber:uniqueId = ' + uniqueId);
+        console.log('isInKitchen:uniqueId = ' + uniqueId);
         var order = Orders.findOne({UniqueId:uniqueId});
         if('inProcess' === order.Status || 'delivered' === order.Status || 'ready' === order.Status)
         	return true;
@@ -45,7 +45,7 @@ Template.confirmation.helpers({
 
      isSaleComplete: function(uniqueId)
     {
-        console.log('getStatusNUmber:uniqueId = ' + uniqueId);
+        console.log('isSaleComplete:uniqueId = ' + uniqueId);
         var order = Orders.findOne({UniqueId:uniqueId});
         if( 'delivered' === order.Status || 'ready' === order.Status)
         	return true;

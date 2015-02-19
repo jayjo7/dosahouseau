@@ -671,7 +671,7 @@ background:#000
 	color: #ffd34e;
 }
 .the-menu-item .the-menu-body p {
-	height: 25px;
+	/*height: 25px;*/
 	overflow: hidden;
 }
 .the-menu-item .prices {

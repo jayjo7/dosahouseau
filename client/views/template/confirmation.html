@@ -98,36 +98,35 @@
 
                               <!-- STEP ONE -->
                               <td class="step active">
-                                <img src="/img/one-on.jpg" alt="Order Placed" /><br />
-                                Order Placed</td>
+                                <img src="/img/1-on.png"  width='100' alt="Order Placed" /><br />
+                                <b>✓</b><br />Order Placed</td>
 
                                 {{#if isInKitchen UniqueId }}
 
                                        <!-- STEP TWO -->
                                       <td class="step active">
-                                        <img src="/img/two-on.jpg" alt="In Kitchen" /><br />
-                                        In Kitchen</td>
+                                        <img src="/img/2-on.png" alt="In Kitchen" /><br />
+                                <b>✓</b><br />In Kitchen</td>
                                 {{else}}
 
                                <!-- STEP TWO -->
                                       <td class="step ">
-                                        <img src="/img/two.jpg" alt="In Kitchen" /><br />
-                                        In Kitchen</td>
+                                        <img src="/img/2-off.png" alt="In Kitchen" /><br />
+                                <b>&nbsp;</b><br />In Kitchen</td>
                                 {{/if}}
 
 
                                 {{#if isSaleComplete UniqueId}}
 
                                       <td class="step active">
-                                      <img src="/img/three-on.jpg" alt="Ready for Pickup" /><br />
-                                      Ready for Pickup</td>
+                                      <img src="/img/3-on.png" alt="Ready for Pickup" /><br />
+                                <b>✓</b><br />Ready for Pickup</td>
 
                                 {{else}}
                                      <!-- STEP THREE -->
                                     <td class="step">
-                                      <img src="/img/three.jpg" alt="Ready for Pickup" /><br />
-
-                                      Ready for Pickup</td>
+                                      <img src="/img/3-off.png" alt="Not Ready" /><br />
+                                <b>&nbsp;</b><br />Not Ready</td>
 
                                 {{/if}}
 
@@ -167,13 +166,8 @@
                           </table>
 
                            {{#if isReady UniqueId}}
-                           <br/>
-  <div><!--[if mso]>
-                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:45px;v-text-anchor:middle;width:155px;" arcsize="15%" strokecolor="#ffffff" fillcolor="#ff6f6f">
-                              <w:anchorlock/>
-                              <center style="color:#ffffff;font-family:Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;">Driving Directions</center>
-                            </v:roundrect>
-                          <![endif]--><a href="https://www.google.com/maps/place/4%2F100-102+Pacific+Hwy,+Waitara+NSW+2077,+Australia" style="background-color:#ff6f6f;border-radius:5px;color:#ffffff;display:inline-block;font-family:'Cabin', Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:155px;-webkit-text-size-adjust:none;mso-hide:all;">Driving Directions</a></div>
+                              <br/>
+                              <div><a href="https://www.google.com/maps/place/4%2F100-102+Pacific+Hwy,+Waitara+NSW+2077,+Australia" style="color:green;border-radius:5px;color:#ffffff;display:inline-block;font-family:'Cabin', Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:155px;-webkit-text-size-adjust:none;mso-hide:all;">Driving Directions</a></div>
 
 
 
