@@ -13,6 +13,11 @@ body {
  padding-top:50px;
 }
 
+body {
+    background-image: url("img/back.jpg");
+    background-color: #fff;
+}
+
 #masthead { 
  min-height:250px;
 }

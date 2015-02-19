@@ -4,6 +4,8 @@ Meteor.startup(function() {
 
    $('html').attr('class', 'no-js');
 
+   $('body').attr('class', 'body');
+
    	if ( $(window).width() >= $MQ ) {
 		$navigation.detach();
 		$navigation.appendTo('header');
@@ -11,6 +13,8 @@ Meteor.startup(function() {
 		$navigation.detach();
 		$navigation.insertAfter('header');
 	}
+
+
 
 	Meteor.call('getUUID', function(error, result){
     	console.log("UUID for this session: " +  result);
