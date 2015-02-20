@@ -156,4 +156,36 @@ Template.cart.events({
 		}
     }
 
+
+
+});
+
+    Template.body.events({
+        "click .cartProduct ": function(evt, data) {
+
+        var dataJson= JSON.stringify(data);
+
+        var htmlName = dataJson.Name;
+     
+         console.log(' body Input data = '+ dataJson);
+            console.log(' body Input data htmlName = '+ htmlName);
+
+
+         var target =  evt.target.title='Added';
+  //console.log(' body Input Event = '+ target.hasclass (''));
+
+        for(key in target)
+        {
+            console.log(Key + " = " + target[key]);
+        }
+
+        console.log(' body Input data = '+ data);
+
+        for(key in data)
+        {
+            console.log(Key + " = " + data[key]);
+        }
+    // e -> jquery event
+    // data -> Blaze data context of the DOM element triggering the event handler
+  }
 });
