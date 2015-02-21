@@ -91,3 +91,17 @@ Template.header.events({
 
 });
 
+Template.header.helpers({
+
+	homeUrl: function()
+	{
+		var host =  window.location.host;
+		if('localhost'===host)
+			return 'http://host';
+		else
+			return 'https://host';
+	}
+
+
+	});
+

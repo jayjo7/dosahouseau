@@ -2,13 +2,24 @@ Template.homePage.helpers({
 
     isDrink:function(categoryMenu)
     {
-        console.log('isDrink:categoryMenu = ' +categoryMenu);
+        //console.log('isDrink:categoryMenu = ' +categoryMenu);
         if('Drinks' === categoryMenu)
             return true;
         else
             return false;
 
 
+    },
+
+    isItemInCart: function(product){
+        var sessid = Session.get('appUUID');
+
+
+        var cartItems = CartItems.findOne({session: sessid, product:product});
+            if(cartItems)
+                    return true;
+            else
+            return false;
     },
 
 	categoryMenu: function()
