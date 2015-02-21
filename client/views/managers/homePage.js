@@ -98,8 +98,11 @@ Template.homePage.events({
         var sessid = Session.get('appUUID');
         console.log("product = " + product );
         console.log("sessid = " + sessid );
+        console.log('currentTarget.title = ' + currentTarget.title);
+
+
         Meteor.call('addToCart', 1 ,product, sessid, this.Name, this.Category, this.Charge);
-        evt.currentTarget.className = " fa fa-check btn btn-success";
+        evt.currentTarget.className = "fa fa-check btn btn-success addcart"; 
         evt.currentTarget.title='Added'
     }
 

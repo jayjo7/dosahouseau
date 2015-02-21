@@ -17,6 +17,7 @@ Template.catering.helpers({
 
 		var cateringArray = value.split('\n\n' );
 
+
 		//for(key in cateringArray)
 		//{
 		//	console.log(key + " = " + acateringArray[key]);
