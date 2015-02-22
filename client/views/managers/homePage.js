@@ -99,11 +99,25 @@ Template.homePage.events({
         console.log("product = " + product );
         console.log("sessid = " + sessid );
         console.log('currentTarget.title = ' + currentTarget.title);
-
-
         Meteor.call('addToCart', 1 ,product, sessid, this.Name, this.Category, this.Charge);
-        evt.currentTarget.className = "fa fa-check btn btn-success addcart"; 
-        evt.currentTarget.title='Added'
+        evt.currentTarget.className = "fa fa-check btn btn-success removecart"; 
+        evt.currentTarget.title='Remove from Cart'
+    },
+
+        'click .removecart': function(evt,tmpl)
+    {
+        var currentTarget = evt.currentTarget
+        console.log("currentTarget" + currentTarget);
+        console.log("tmpl" + tmpl);
+        console.log("this.UniqueId " + this.UniqueId );
+        var product = this.UniqueId ;
+        var sessid = Session.get('appUUID');
+        console.log("product = " + product );
+        console.log("sessid = " + sessid );
+        console.log('currentTarget.title = ' + currentTarget.title);
+        Meteor.call('removeCartItem', product, sessid);
+        evt.currentTarget.className = "fa fa-shopping-cart  btn btn-default addcart"; 
+        evt.currentTarget.title='Add to Cart'
     }
 
 

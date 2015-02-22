@@ -42,8 +42,9 @@ Meteor.methods({
 			console.log('Quantity is Zero');
 		}
 	},
-	removeCartItem:function(id){
-		CartItems.remove({_id:id});
+	removeCartItem:function(product,sessionId ){
+		console.log('Removing from Cart: Sessionid = ' + sessionId + ' :: product' +product);
+		CartItems.remove({session:sessionId, product:product});
 	},
 		removeAllCartItem:function(sessionId){
 		CartItems.remove({session:sessionId});
