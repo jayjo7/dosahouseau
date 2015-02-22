@@ -24,6 +24,7 @@ Template.homePage.helpers({
 
 	categoryMenu: function()
 	{
+        
 
 		return Settings.find({$and : [{Key: "category_menu"}, {Value : {"$exists" : true, "$ne" : ""}}]});
 

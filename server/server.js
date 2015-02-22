@@ -1,5 +1,15 @@
 Meteor.methods({
 
+  getTax:function(){
+
+  	var tax = Settings.findOne( { Key:'tax'});;
+  	console.log('tax = ' + tax);
+  	
+
+  	return tax;
+
+  },
+
 
   getUUID: function () {
     var d = new Date().getTime();

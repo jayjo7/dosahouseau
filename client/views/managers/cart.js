@@ -17,6 +17,9 @@ Template.cart.helpers({
 
     shopCart: function()
     {
+
+        var tax = Settings.findOne({$and : [{Key: "tax"}, {Value : {"$exists" : true, "$ne" : ""}}]});
+
     	   sessid = Session.get('appUUID');
              
            console.log("shopCart:sessid =  " +sessid);
@@ -38,9 +41,24 @@ Template.cart.helpers({
 		        shopCart.push(cartItem);
 		    });
 		    shopCart.subtotal = total;
-		    shopCart.tax = shopCart.subtotal * .092;
+            console.log("tax.Value : " + tax.Value);
 
-		    shopCart.total = shopCart.subtotal + shopCart.tax;
+            if(tax)
+            {
+                 shopCart.tax = shopCart.subtotal * Number (tax.Value);
+
+                 shopCart.taxMessage= "Including Tax";
+                 shopCart.total = shopCart.subtotal + shopCart.tax;
+
+            }
+            else
+            {
+                shopCart.total = shopCart.subtotal 
+
+                shopCart.taxMessage= "Tax is not included";
+            }
+
+
 
 		    for(key in shopCart)
 		    {
@@ -89,6 +107,9 @@ Template.cart.events({
                     });
                     $lateral_cart.removeClass('speed-in');
                 }
+
+        
+
         }
 
         event.preventDefault();
