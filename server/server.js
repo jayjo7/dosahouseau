@@ -25,35 +25,53 @@ Meteor.methods({
 },
 
 	addToCart:function(qty, product, session,Name, Category, Charge){
+		qty = Number (qty);
 		if(qty>0)
 		{
-			qty = Number (qty);
-			var itemFromCart = CartItems.findOne( { $and:[{product:product}, {session:session}]});
-			if(itemFromCart)
-			{
+			
+			//var itemFromCart = CartItems.findOne( { $and:[{product:product}, {session:session}]});
+			//if(itemFromCart)
+			//{
 				
 			//console.log("itemFromCart.count() = " +itemFromCart.length)
 
-				for (var key in itemFromCart )
-				{
-					console.log("itemFromCart.key = " + itemFromCart[key]);
-				}
-				qty +=Number(itemFromCart.qty);
-				console.log("qty = " + qty);
+				//for (var key in itemFromCart )
+				//{
+				//	console.log("itemFromCart.key = " + itemFromCart[key]);
+				//}
+				//qty +=Number(itemFromCart.qty);
+				//console.log("qty = " + qty);
 
-			}
+			
 
 		
 			CartItems.update({product:product, session:session},{qty:qty, product:product, session:session,Name:Name, Category:Category, Charge:Charge},{upsert:true});
 
 			//CartItems.insert({qty:qty, product:product, session:session});
-			console.log('Added the session = ' + session);
-			console.log('Added the product = ' + product);
+			console.log('Added the product = ' + product  + ' for session id = ' + session);
 			
-		}else{
-			console.log('Quantity is Zero');
+		}
+		else if (qty=== 0) 
+		{
+				console.log('Quantity is Zero');
+
+				CartItems.remove ({product:product, session:session}, function(error, result){
+
+					if (error)
+					{
+						console.log('Trouble removing the product = ' + product  + ' for session id = ' + session);
+					}
+
+				});
+
+		}
+		else
+		{
+				console.log('addToCart: Invalid Quantity');
+
 		}
 	},
+	
 	removeCartItem:function(product,sessionId ){
 		console.log('Removing from Cart: Sessionid = ' + sessionId + ' :: product' +product);
 		CartItems.remove({session:sessionId, product:product});

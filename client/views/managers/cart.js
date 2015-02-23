@@ -214,28 +214,60 @@ Template.cart.events({
     Template.body.events({
         "click .cartProduct ": function(evt, data) {
 
-        var dataJson= JSON.stringify(data);
+        //var dataJson= JSON.stringify(data);
 
-        var htmlName = dataJson.Name;
+        //var htmlName = dataJson.Name;
      
-         console.log(' body Input data = '+ dataJson);
-            console.log(' body Input data htmlName = '+ htmlName);
+         //console.log(' body Input data = '+ dataJson);
+            //console.log(' body Input data htmlName = '+ htmlName);
+
+            var selectedValue = Number (this.value);
+            console.log(' New Selected Value = '+ selectedValue);
 
 
-         var target =  evt.target.title='Added';
+            product_id= this.id;
+            console.log("product_id = " + product_id );
+
+            product = product_id.substring(product_id.indexOf("_")+1);
+            console.log("product = " + product );
+
+            sessid = Session.get('appUUID');
+            console.log("sessid = " + sessid );
+
+
+            if(selectedValue ===0)
+            {
+                if(confirm('Are you sure to remove the item !'))
+                {
+                    Meteor.call('addToCart', selectedValue ,product, sessid, this.Name, this.Category, this.Charge);
+
+                }
+                esle
+                {
+                    this.value = selectedValue;
+                }
+            }
+            else
+            {
+
+                   var productObject=  Menu.findOne({UniqueId:product});
+
+                   console.log('productObject = ' + productObject);
+
+                    Meteor.call('addToCart', selectedValue ,product, sessid, productObject.Name, productObject.Category, productObject.Charge);
+
+            }
+
+
+
+
+
+
+
+
+        // var target =  evt.target.title='Added';
   //console.log(' body Input Event = '+ target.hasclass (''));
-
-        for(key in target)
-        {
-            console.log(Key + " = " + target[key]);
-        }
-
-        console.log(' body Input data = '+ data);
-
-        for(key in data)
-        {
-            console.log(Key + " = " + data[key]);
-        }
+//
     // e -> jquery event
     // data -> Blaze data context of the DOM element triggering the event handler
   }
