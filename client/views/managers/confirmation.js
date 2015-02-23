@@ -134,6 +134,9 @@ Template.confirmation.helpers({
              
            console.log("orderedCart:uniqueId =  " +uniqueId);
 
+           var tax = Settings.findOne({$and : [{Key: "tax"}, {Value : {"$exists" : true, "$ne" : ""}}]});
+
+
 
 		    var orderedCart = [];
 		    var cartItems = OrderedItems.find({UniqueId: uniqueId});
@@ -148,9 +151,32 @@ Template.confirmation.helpers({
 		        orderedCart.push(cartItem);
 		    });
 		    orderedCart.subtotal = total;
-		    orderedCart.tax = orderedCart.subtotal * .092;
 
-		    orderedCart.total = orderedCart.subtotal + orderedCart.tax;
+            console.log("tax.Value : " + tax.Value);
+
+            var taxValue = Number(tax.Value);
+
+            if(taxValue > 0)
+            {
+                 orderedCart.tax = orderedCart.subtotal * taxValue;
+
+                 orderedCart.taxMessage= "Including Tax";
+                 orderedCart.total = orderedCart.subtotal + orderedCart.tax;
+                 Session.set('orderedTax', orderedCart['tax']);          
+
+
+            }
+            else
+            {
+                orderedCart.total = orderedCart.subtotal 
+
+                orderedCart.taxMessage= "Tax is not included";
+            }
+
+
+		    //orderedCart.tax = orderedCart.subtotal * .092;
+
+		   // orderedCart.total = orderedCart.subtotal + orderedCart.tax;
 
 		    for(key in orderedCart)
 		    {
@@ -158,7 +184,6 @@ Template.confirmation.helpers({
 		    }
 
 		    Session.set('orderedSubTotal', orderedCart['subtotal']);
-		   	Session.set('orderedTax', orderedCart['tax']);		    
 		   	Session.set('orderedTotal', orderedCart['total']);
 
 
@@ -166,6 +191,19 @@ Template.confirmation.helpers({
 
           
        
+
+    },
+
+    haveTax:function()
+    {
+        if(Session.get('orderedTax'))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
     },
 

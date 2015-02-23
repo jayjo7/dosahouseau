@@ -2,9 +2,11 @@ Meteor.methods({
 
   getTax:function(){
 
-  	var tax = Settings.findOne( { Key:'tax'});;
+  	//var tax = Settings.findOne( { Key:'tax'});;
+    var tax = Settings.findOne({$and : [{Key: "tax"}, {Value : {"$exists" : true, "$ne" : ""}}]});
+
   	console.log('tax = ' + tax);
-  	
+
 
   	return tax;
 
@@ -164,7 +166,23 @@ Meteor.methods({
 			order.Items= itemString.substring(0, itemString.length-1); // Substring to get rid of the last new character
 			order.TotalItem = totalItemCount;	
 			order.SubTotal = Number (subTotal.toFixed(2));
-			order.Total = Number((subTotal + subTotal * .092).toFixed(2));
+
+
+			tax = Meteor.call('getTax');
+            var taxValue = Number(tax.Value);
+
+            if(taxValue > 0)
+            {
+            	order.tax = subTotal * taxValue;
+
+            }
+            else
+
+            {
+            	order.tax = 0;
+            }	
+
+			order.Total = Number((subTotal + order.tax).toFixed(2));
 
 			order.sessionId =sessionId;
 

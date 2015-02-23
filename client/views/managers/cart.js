@@ -43,9 +43,11 @@ Template.cart.helpers({
 		    shopCart.subtotal = total;
             console.log("tax.Value : " + tax.Value);
 
-            if(tax)
+            var taxValue = Number(tax.Value);
+
+            if(taxValue > 0)
             {
-                 shopCart.tax = shopCart.subtotal * Number (tax.Value);
+                 shopCart.tax = shopCart.subtotal * taxValue;
 
                  shopCart.taxMessage= "Including Tax";
                  shopCart.total = shopCart.subtotal + shopCart.tax;
