@@ -27,7 +27,7 @@ Template.aboutUs.helpers({
 
 
 
-	},
+	}
 
 
 });

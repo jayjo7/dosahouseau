@@ -1,5 +1,85 @@
 Template.homePage.helpers({
 
+    haveNotification: function()
+    {
+
+        var settings = Settings.findOne({$and : [{Key: "message_notification"}, {Value : {"$exists" : true, "$ne" : ""}}]})
+
+                var settingsValue = settings['Value'];
+                console.log(' message Notification = ' + settingsValue);
+                console.log(' message Notification trimmed= ' + settingsValue.trim());
+                var settingsValueTrimed = settingsValue.trim();
+                console.log(' message Notification trimmed size = ' + settingsValue.trim().length);
+
+
+                 var settingsArray=[];
+
+                 Session.set('haveNotification', null);
+
+                if(settingsValue.trim().length> 0)
+                {
+
+                    settingsArray = settingsValue.split('\n\n' );
+
+
+                  return  true;
+
+                }
+                else
+                {
+
+                     return false;
+                }
+
+
+
+    },
+
+    notification: function()
+    {
+
+        var settings = Settings.findOne({$and : [{Key: "message_notification"}, {Value : {"$exists" : true, "$ne" : ""}}]})
+
+                var settingsValue = settings['Value'];
+                console.log(' message Notification = ' + settingsValue);
+                console.log(' message Notification trimmed= ' + settingsValue.trim());
+                var settingsValueTrimed = settingsValue.trim();
+                console.log(' message Notification trimmed size = ' + settingsValue.trim().length);
+
+
+                 var settingsArray=[];
+
+                 Session.set('haveNotification', null);
+
+                if(settingsValue.trim().length> 0)
+                {
+
+                    settingsArray = settingsValue.split('\n\n' );
+
+
+                  Session.set('haveNotification', true);
+
+                }
+                else
+                {
+
+                     Session.set('haveNotification', false);
+                }
+                console.log('settingsArray.length = ' + settingsArray);
+
+   
+
+                return settingsArray;
+            
+
+    },
+
+    isStoreClosed:function()
+    {
+
+        return Settings.find({$and : [{Key: "store_open_time"}, {Value : {"$exists" : true, "$ne" : ""}}]});
+    },
+
     isDrink:function(categoryMenu)
     {
         //console.log('isDrink:categoryMenu = ' +categoryMenu);
@@ -24,7 +104,7 @@ Template.homePage.helpers({
 
 	categoryMenu: function()
 	{
-        
+
 
 		return Settings.find({$and : [{Key: "category_menu"}, {Value : {"$exists" : true, "$ne" : ""}}]});
 
