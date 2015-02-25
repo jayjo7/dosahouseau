@@ -86,6 +86,75 @@ Template.header.events({
 			});
 			$lateral_cart.removeClass('speed-in');
 		}
+    },
+
+		'click .mainmenutoggle':function (evt,tmpl)
+    {
+    	//evt.preventDefault();
+
+
+       evt.currentTarget.className ='current mainmenutoggle';
+
+
+
+    	var $L = 1200,
+    	$main_menutoggle	= $('#main-menutoggle'),
+   		$aboutus_menutoggle	= $('#aboutus-menutoggle'),
+    	$catering_menutoggle = $('#catering-menutoggle'),
+    	$findus_menutoggle	= $('#findus-menutoggle');
+
+    	var currentTargetId = evt.currentTarget.id;
+
+
+    	if(currentTargetId === $main_menutoggle.attr('id'))
+    	{
+    		$aboutus_menutoggle.removeClass('current mainmenutoggle');
+    		$catering_menutoggle.removeClass('current mainmenutoggle');
+    		$findus_menutoggle.removeClass('current mainmenutoggle');
+
+    		$aboutus_menutoggle.addClass('mainmenutoggle');
+    		$catering_menutoggle.addClass('mainmenutoggle');
+    		$findus_menutoggle.addClass('mainmenutoggle');
+
+    	}
+    	else if (currentTargetId === $aboutus_menutoggle.attr('id')) 
+    	{
+
+    		$main_menutoggle.removeClass('current mainmenutoggle');
+    		$catering_menutoggle.removeClass('current mainmenutoggle');
+    		$findus_menutoggle.removeClass('current mainmenutoggle');
+
+    		$main_menutoggle.addClass('mainmenutoggle');
+    		$catering_menutoggle.addClass('mainmenutoggle');
+    		$findus_menutoggle.addClass('mainmenutoggle');
+
+    	}
+    	else if(currentTargetId === $catering_menutoggle.attr('id') )
+    	{
+    		$main_menutoggle.removeClass('current mainmenutoggle');
+    		$aboutus_menutoggle.removeClass('current mainmenutoggle');
+    		$findus_menutoggle.removeClass('current mainmenutoggle');
+
+    		$main_menutoggle.addClass('mainmenutoggle');
+    		$aboutus_menutoggle.addClass('mainmenutoggle');
+    		$findus_menutoggle.addClass('mainmenutoggle');
+
+    	}
+    	else if(currentTargetId === $findus_menutoggle.attr('id'))
+    	{
+    		$main_menutoggle.removeClass('current mainmenutoggle');
+    		$aboutus_menutoggle.removeClass('current mainmenutoggle');
+    		$catering_menutoggle.removeClass('current mainmenutoggle');
+    		$main_menutoggle.addClass('mainmenutoggle');
+    		$aboutus_menutoggle.addClass('mainmenutoggle');
+    		$catering_menutoggle.addClass('mainmenutoggle');
+
+    	}
+
+    	
+
+
+
     }
 
 

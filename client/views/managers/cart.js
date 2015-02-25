@@ -117,15 +117,22 @@ Template.cart.events({
         event.preventDefault();
         console.log("Order form submitted");
         console.log(event.type);
+
+
+        for(key in event.target)
+        {
+            console.log(key + ' = ' + event.target[key]);
+        }
+
         var contactInfo = {};
 
         contactInfo.phoneNumber = event.target.intputPhoneNumber.value;
         contactInfo.email=event.target.inputEmail.value;
-        //contactInfo.messageToKitchen = event.target.messageToKitchen.value;
+        contactInfo.messageToKitchen = event.target.messageToKitchen.value;
         contactInfo.contactName = event.target.contactName.value;
         console.log(contactInfo.phoneNumber);
         console.log(contactInfo.email);
-        //console.log(contactInfo.messageToKitchen);
+        console.log(contactInfo.messageToKitchen);
         console.log(contactInfo.contactName);
             var sessid = Session.get('appUUID');
             console.log("Confirming orders... " + sessid);

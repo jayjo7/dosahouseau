@@ -171,6 +171,9 @@ Template.homePage.helpers({
 Template.homePage.events({
     'click .addcart': function(evt,tmpl)
     {
+
+
+
         var currentTarget = evt.currentTarget
         console.log("currentTarget" + currentTarget);
         console.log("tmpl" + tmpl);
@@ -183,6 +186,12 @@ Template.homePage.events({
         Meteor.call('addToCart', 1 ,product, sessid, this.Name, this.Category, this.Charge);
         evt.currentTarget.className = "fa fa-check btn btn-success removecart"; 
         evt.currentTarget.title='Remove from Cart'
+
+        var $L = 1200,
+        $main_menutoggle    = $('#dosahousecart');
+        $main_menutoggle.removeClass('cd-cart-trigger');
+        $main_menutoggle.addClass('cd-cart-triggered');
+
     },
 
         'click .removecart': function(evt,tmpl)

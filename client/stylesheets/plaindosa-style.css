@@ -119,6 +119,11 @@ header {
 	background: #26292f url("../img/sidecart/cd-cart.svg") no-repeat center center;
 }
 
+/* Added Cart */
+#cd-cart-triggered a {
+	background: green url("../img/sidecart/cd-cart.svg") no-repeat center center;
+}
+
 @media only screen and (min-width: 1200px) {
 #cd-cart-trigger {
 	/* cart right margin on desktop */
@@ -130,6 +135,14 @@ header {
 	border-left: none;
 	background-color: #26292f;
 }
+/* Added Cart */
+#cd-cart-triggered a {
+	position: relative;
+	width: 100px;
+	border-left: none;
+	background-color: green;
+}
+
 }
 #main-nav, #cd-cart {
 	position: fixed;
