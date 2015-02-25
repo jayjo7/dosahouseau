@@ -151,29 +151,29 @@
                         </div>
                         <br />
                          -->
-                        <hr color="#CFCFCF" width="80%" size="1" align="center" />
-                          <table cellspacing="0" cellpadding="0" width="90%" align="center" >
+                        <hr color="#CFCFCF" width="100%" size="1" align="center" />
+                          <table cellspacing="0" cellpadding="0" width="100%" align="center" >
                             <tr>
                               <td ><br /><span class="header-sm "  style="font-family: 'Rock Salt';">Pickup at</span> <br />
                                 <br />
-                                <a href="https://www.google.com/maps/place/4%2F100-102+Pacific+Hwy,+Waitara+NSW+2077,+Australia"><span> <strong>DosaHouse</strong><br />
+                                <span> <strong>DosaHouse</strong><br />
                                     {{address.Value}}<br />
                                       <br />
-                              </span></a>
+                              </span>
                               <a href="tel:{{phoneNumber.Value}}" class="phone">{{phoneNumber.Value}}</a></td>
                             </tr>
                             
                           </table>
 
-                           {{#if isReady UniqueId}}
+                        
                               <br/>
-                              <div><a href="https://www.google.com/maps/place/4%2F100-102+Pacific+Hwy,+Waitara+NSW+2077,+Australia" style="color:green;border-radius:5px;color:#ffffff;display:inline-block;font-family:'Cabin', Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:155px;-webkit-text-size-adjust:none;mso-hide:all;">Driving Directions</a></div>
-
-
-
-
-
-                           {{/if}}
+  <div><!--[if mso]>
+                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:45px;v-text-anchor:middle;width:155px;" arcsize="15%" strokecolor="#ffffff" fillcolor="#ff6f6f">
+                              <w:anchorlock/>
+                              <center style="color:#ffffff;font-family:Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;">Driving Directions</center>
+                            </v:roundrect>
+                          <![endif]--><a href="https://www.google.com/maps/place/4%2F100-102+Pacific+Hwy,+Waitara+NSW+2077,+Australia" style="background-color:green;border-radius:5px;color:#ffffff;display:inline-block;font-family:'Cabin', Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:155px;-webkit-text-size-adjust:none;mso-hide:all;">Driving Directions</a></div>
+                        
 
                         </td>
                       </tr>
@@ -204,7 +204,7 @@
                     <td class="title-dark" width="163">
                       Qty
                     </td>
-                    <td class="title-dark" width="97">
+                    <td class="title-dark" width="97" style="text-align: right">
                       Total
                     </td>
                   </tr>
@@ -223,7 +223,7 @@
                     <td class="item-col quantity">
                       {{qty}}
                     </td>
-                    <td class="item-col">
+                    <td class="item-col" style="text-align: right">
                       {{currency price}}
                     </td>
                   </tr>
@@ -241,11 +241,11 @@
                      {{# if haveTax}}
                                 <td class="item-col item">
                                 </td>
-                                <td class="item-col quantity" style="text-align:right; padding-right: 10px; border-top: 1px solid #cccccc;"><span class="total-space">Subtotal</span> <br />
+                                <td class="item-col quantity" style="text-align:right; padding-right: 10px; border-top: 1px solid #cccccc;"><span class="total-space" >Subtotal</span> <br />
                                   <span class="total-space">Tax</span> <br />
                                   <!-- <span class="total-space">Delivery Fee</span> <br /> -->
                                 <span class="total-space" style="font-weight: bold; color: #4d4d4d">Total</span></td>
-                                <td class="item-col price" style="text-align: left; border-top: 1px solid #cccccc;"><span class="total-space">{{getSubTotal}}</span> <br />
+                                <td class="item-col price" style="text-align: right; border-top: 1px solid #cccccc;"><span class="total-space">{{getSubTotal}}</span> <br />
                                  
                                     <span class="total-space">{{getTax}}</span> <br />
                                   
