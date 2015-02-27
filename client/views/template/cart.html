@@ -16,7 +16,7 @@
 
           <div class="col-xs-12">
 
-            <input type="number" maxlength="2" class="text-warning cartProduct" size="2" min="0" max="10" id="product_{{product}}" name="product_{{product}}" value="{{qty}}">
+            <input type="number" maxlength="2" class="text-warning cartProduct" size="2" min="0"  id="product_{{product}}" name="product_{{product}}" value="{{qty}}">
 
            <span class="amount pull-right" >{{currency price}} </span>
         </div>
@@ -54,7 +54,7 @@
             </p>
         </div>
         <br>
-        <button type="submit" class="btn btn-link checkout-btn placeOrder">Place Order</button>
+        <button type="submit" class="btn btn btn-success checkout-btn placeOrder">Place Order</button>
 
 
       {{/if}}

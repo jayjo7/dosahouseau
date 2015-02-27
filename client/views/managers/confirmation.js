@@ -1,4 +1,9 @@
 Template.confirmation.helpers({
+  haveETA: function(uniqueId)
+  {
+
+  },
+
 	isReady: function(uniqueId)
     {
         console.log('isReady:uniqueId = ' + uniqueId);
@@ -156,7 +161,7 @@ Template.confirmation.helpers({
 
             var taxValue = Number(tax.Value);
 
-            if(taxValue > 0)
+            if(taxValue >= 0)
             {
                  orderedCart.tax = orderedCart.subtotal * taxValue;
 
@@ -169,7 +174,7 @@ Template.confirmation.helpers({
             else
             {
                 orderedCart.total = orderedCart.subtotal 
-
+                Session.set('orderedTax', null);          
                 orderedCart.taxMessage= "Tax is not included";
             }
 

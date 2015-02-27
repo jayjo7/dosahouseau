@@ -132,7 +132,11 @@ Meteor.methods({
 			order.OrderNumber=sequence.orderNumber;
 			order.UniqueId=sequence._id;
 
-			var now =moment().utcOffset(11).format('MM/DD/YYYY hh:mm:ss A');
+			var gmt_offset = Settings.findOne({Key: 'gmt_offset'})
+
+			console.log('gmt_offset = ' + gmt_offset.Value );
+
+			var now =moment().utcOffset(Number(gmt_offset.Value)).format('MM/DD/YYYY hh:mm:ss A');
 
 			console.log('now = ' + now);
 

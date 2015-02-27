@@ -3,7 +3,17 @@
 <header class="shadow" >
   <div id="logo"><a href="#"><img  src="img/dosa-logo2.png" width="100" alt="Homepage" ></a></div>
   <div id="cd-hamburger-menu"><a class="cd-img-replace hamburgerMenu" href="#0">Menu</a></div>
-  <div id="cd-cart-trigger"><a id ="dosahousecart" class="cd-img-replace openCart" href="#0">Cart</a></div>
+
+  {{# if isItemInCart}}
+
+  <div id="cd-cart-trigger"><a id ="dosahousecart" class="cd-img-replace openCart" style="background-color:green;" href="#0">Cart</a></div>
+
+
+  {{else}}
+
+  <div id="cd-cart-trigger"><a id ="dosahousecart" class="cd-img-replace openCart" style="background-color:#26292f;" href="#0">Cart</a></div>
+
+  {{/if}}
 
 
 </header>

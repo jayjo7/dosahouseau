@@ -45,14 +45,14 @@ Template.cart.helpers({
 
             var taxValue = Number(tax.Value);
 
-            if(taxValue > 0)
+            if(taxValue >= 0)
             {
                  shopCart.tax = shopCart.subtotal * taxValue;
 
                  shopCart.taxMessage= "Including Tax";
                  shopCart.total = shopCart.subtotal + shopCart.tax;
 
-            }
+            } 
             else
             {
                 shopCart.total = shopCart.subtotal 

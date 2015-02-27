@@ -23,7 +23,10 @@
 {{# if haveNotification notification}}
 
           <!-- Notification Alerts -->
-<div class="alert alert-info alert-dismissible text-center" style="box-shadow: 2px 2px 2px rgba(1, 1, 0, 0.2);" role="alert">
+<!--<div class="alert alert-info alert-dismissible text-center" style="box-shadow: 2px 2px 2px rgba(1, 1, 0, 0.2);" role="alert"> -->
+<div class="alert alert-info  alert-dismissible text-center" style="box-shadow: 2px 2px 2px rgba(1, 1, 0, 0.2); background-color:#FEFF82; border: dashed thin  #FFB855;" role="alert">
+
+
   <button type="button" class=" fa fa-close close" data-dismiss="alert" aria-label="Close"></button>
 
 {{#each notification}}
@@ -79,15 +82,38 @@
 
                                 {{#if isItemInCart UniqueId }}
 
-                                      <button type="button" class="fa fa-check btn btn-success removecart " data-toggle="tooltip" data-placement="bottom" title='Remove from Cart'>
+                                      {{#if isTakingOnlineOrder}}
+                                          <button type="button" class="fa fa-check btn btn-success removecart " data-toggle="tooltip" data-placement="bottom" title='Remove from Cart'>
                                           <span class="price xsm"> {{currency Charge}} </span>  
-                                      </button>
+                                        </button>
+ 
+                                       
+                                      {{else}}
+                                          <button type="button" class="fa fa-check btn btn-inverse" data-toggle="tooltip" data-placement="bottom" title='Not accepting online Orders'>
+                                          <span class="price xsm"> {{currency Charge}} </span> 
+                                           </button>
+
+                                        {{/if}}
+
 
                                 {{else}}
-                                      <button type="button" class="fa fa-shopping-cart  btn btn-default addcart" data-toggle="tooltip" data-placement="bottom" title="Add to Cart">
+
+                                      {{#if isTakingOnlineOrder }}
+                                        <button type="button" class="fa fa-shopping-cart  btn btn-default addcart" data-toggle="tooltip" data-placement="bottom" title="Add to Cart">
 
                                         <span class="price xsm"> {{currency Charge}} </span>  
                                       </button>
+
+
+                                      {{else}}
+
+                                      <button type="button" class="fa fa-shopping-cart  btn btn-btn-inverse" data-toggle="tooltip" data-placement="bottom" title="Not accepting online Orders">
+
+                                        <span class="price xsm"> {{currency Charge}} </span>  
+                                      </button>
+
+
+                                      {{/if}}
                                   {{/if}}
                             </div>
                       {{else}}
