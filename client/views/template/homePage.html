@@ -20,7 +20,7 @@
   </div>
 </main>
 
-{{# if haveNotification notification}}
+{{# if haveNotification notification isNotTakingOnlineOrder isStoreClosed }}
 
           <!-- Notification Alerts -->
 <!--<div class="alert alert-info alert-dismissible text-center" style="box-shadow: 2px 2px 2px rgba(1, 1, 0, 0.2);" role="alert"> -->
@@ -29,9 +29,9 @@
 
   <button type="button" class=" fa fa-close close" data-dismiss="alert" aria-label="Close"></button>
 
-{{#each notification}}
+  {{#each notification_message_session}}
 
-  <h5>  <i class="fa  fa-flag"> &nbsp;</i>  {{this}}</h5>
+  <h4>  <i class="fa  fa-flag"> &nbsp;</i>  {{this}}</h4>
 
   {{/each}}
 </div>
@@ -98,7 +98,7 @@
 
                                 {{else}}
 
-                                      {{#if isTakingOnlineOrder }}
+                                      {{#if isTakingOnlineOrder isNotTakingOnlineOrder isStoreClosed}}
                                         <button type="button" class="fa fa-shopping-cart  btn btn-default addcart" data-toggle="tooltip" data-placement="bottom" title="Add to Cart">
 
                                         <span class="price xsm"> {{currency Charge}} </span>  
