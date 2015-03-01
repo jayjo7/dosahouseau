@@ -82,9 +82,47 @@ Template.cart.helpers({
 
 Template.cart.events({
 
+   
+    'input #product_in_cart': function (event, template) {
+        event.preventDefault();
+        console.log('In the Input Event handler');
+
+        console.log("currentTarget = " + event.currentTarget);
+
+            var selectedValue = Number (event.currentTarget.value);
+            console.log(' New Selected Value = '+ selectedValue);
+
+           product = this.product;
+            console.log("product = " + product );
+
+            sessid = Session.get('appUUID');
+            console.log("sessid = " + sessid );
+
+
+            if(selectedValue ===0)
+            {
+                if(confirm('Are you sure to remove the item !'))
+                {
+                    Meteor.call('addToCart', selectedValue ,product, sessid, this.Name, this.Category, this.Charge);
+
+                }
+                esle
+                {
+                    this.value = selectedValue;
+                }
+            }
+            else
+            {
+
+                    Meteor.call('addToCart', selectedValue ,product, sessid,  this.Name, this.Category, this.Charge);
+
+            }
+  },
+
+
 	'submit form': function(event){
 
-
+        event.preventDefault();
         {
 
                 var $L = 1200,
@@ -95,7 +133,7 @@ Template.cart.events({
                 $shadow_layer = $('#cd-shadow-layer');
                 $body = $('body');
 
-
+                $('body').removeClass('overflow-hidden');
                 $shadow_layer.removeClass('is-visible');
                 // firefox transitions break when parent overflow is changed, so we need to wait for the end of the trasition to give the body an overflow hidden
                 if( $lateral_cart.hasClass('speed-in') ) {
@@ -114,7 +152,7 @@ Template.cart.events({
 
         }
 
-        event.preventDefault();
+        
         console.log("Order form submitted");
         console.log(event.type);
 
@@ -231,11 +269,13 @@ Template.cart.events({
             var selectedValue = Number (this.value);
             console.log(' New Selected Value = '+ selectedValue);
 
+            var product_name = this.name;
+            console.log(' New Selected Name = '+ product_name);
 
             product_id= this.id;
             console.log("product_id = " + product_id );
 
-            product = product_id.substring(product_id.indexOf("_")+1);
+            product = product_name.substring(product_name.indexOf("_")+1);
             console.log("product = " + product );
 
             sessid = Session.get('appUUID');
