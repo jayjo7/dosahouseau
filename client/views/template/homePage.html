@@ -82,7 +82,7 @@
 
                                 {{#if isItemInCart UniqueId }}
 
-                                      {{#if isTakingOnlineOrder}}
+                                      {{#if isTakingOnlineOrder isNotTakingOnlineOrder isStoreClosed}}
                                           <button type="button" class="fa fa-check btn btn-success removecart " data-toggle="tooltip" data-placement="bottom" title='Remove from Cart'>
                                           <span class="price xsm"> {{currency Charge}} </span>  
                                         </button>

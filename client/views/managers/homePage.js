@@ -12,7 +12,7 @@ Template.homePage.helpers({
     haveNotification: function(notification_general,isNotTakingOnlineOrder, isStoreClosed)
     {
         console.log("notification_general = " + notification_general);
-        console.log("notification_general.lenght = " + notification_general.length);
+        //console.log("notification_general.lenght = " + notification_general.length);
         console.log("isNotTakingOnlineOrder= " + isNotTakingOnlineOrder);
         console.log("isStoreClosed = " + isStoreClosed);
 
@@ -64,17 +64,18 @@ Template.homePage.helpers({
                 return true;
         }
 
-        if(notification_general.length> 0)
+        if(typeof notification_general != 'undefined' && notification_general.length> 0)
 
         {
             Session.set('notification_message', notification_general)
-            return  true;
+            return  false;
 
         }
         else
         {
+            Session.set('notification_message', null)
 
-            return false;
+            return true;
         }
 
     },
@@ -138,20 +139,20 @@ Template.homePage.helpers({
 
         var store_close_time_24 = store_close_time.Value + 12;
 
-       // console.log("store_open_time = " + store_open_time.Value);
-       // console.log("store_close_time from sheet = " + store_close_time.Value);
-       // console.log("store_close_time_24 = " + store_close_time_24);    
-       // console.log("gmt_offset = " + gmt_offset.Value);
-       // console.log("store_open_saturday = " + store_open_saturday.Value);
-       // console.log("store_open_sunday = " + store_open_sunday.Value);
+       console.log("store_open_time = " + store_open_time.Value);
+       console.log("store_close_time from sheet = " + store_close_time.Value);
+       console.log("store_close_time_24 = " + store_close_time_24);    
+       console.log("gmt_offset = " + gmt_offset.Value);
+       console.log("store_open_saturday = " + store_open_saturday.Value);
+       console.log("store_open_sunday = " + store_open_sunday.Value);
 
 
             var momentDate=moment().utcOffset(Number(gmt_offset.Value))
             var currentday =momentDate.day();
             var currentTime =momentDate.hour();
 
-            //console.log("currentday = " + currentday);
-            //console.log("currentTime = " + currentTime);
+            console.log("currentday = " + currentday);
+            console.log("currentTime = " + currentTime);
 
 
             if (currentday === 0 ) //Sunday
@@ -175,15 +176,15 @@ Template.homePage.helpers({
 
             if(currentTime >= store_open_time.Value  &&  currentTime < store_close_time_24)
             {
-                //console.log("Store Open on Weekdays")
+                console.log("Store Open on Weekdays")
 
-                return  true;
+                return  false;
             }
             else
             {
-                //console.log("Store close on Weekdays")
+                console.log("Store close on Weekdays")
 
-                return false;
+                return true;
             }
 
     },
