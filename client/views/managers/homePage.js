@@ -137,11 +137,11 @@ Template.homePage.helpers({
         var store_open_saturday= Settings.findOne({$and : [{Key: "store_open_saturday"}, {Value : {"$exists" : true, "$ne" : ""}}]});
         var store_open_sunday= Settings.findOne({$and : [{Key: "store_open_sunday"}, {Value : {"$exists" : true, "$ne" : ""}}]});
 
-        var store_close_time_24 = store_close_time.Value + 12;
+        //var store_close_time_24 = store_close_time.Value + 12;
 
        console.log("store_open_time = " + store_open_time.Value);
        console.log("store_close_time from sheet = " + store_close_time.Value);
-       console.log("store_close_time_24 = " + store_close_time_24);    
+       //console.log("store_close_time_24 = " + store_close_time_24);    
        console.log("gmt_offset = " + gmt_offset.Value);
        console.log("store_open_saturday = " + store_open_saturday.Value);
        console.log("store_open_sunday = " + store_open_sunday.Value);
@@ -174,7 +174,7 @@ Template.homePage.helpers({
             }
 
 
-            if(currentTime >= store_open_time.Value  &&  currentTime < store_close_time_24)
+            if(currentTime >= store_open_time.Value  &&  currentTime < store_close_time.Value)
             {
                 console.log("Store Open on Weekdays")
 
