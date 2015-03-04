@@ -230,7 +230,26 @@ Template.confirmation.helpers({
     	currency: function(num)
     	{
         	return '$' + Number(num).toFixed(2);
-    	}
+    	},
+
+      haveMessageToKitchen: function(uniqueId)
+      {
+                var order = Orders.findOne({UniqueId:uniqueId});
+                if(order.MessageToKitchen)
+                {
+                  return true;
+
+                }
+                else
+                {
+                  return false;
+                }
+      },
+            messageToKitchen: function(uniqueId)
+      {
+                var order = Orders.findOne({UniqueId:uniqueId});
+                return order.MessageToKitchen;
+      }
 
 
 
