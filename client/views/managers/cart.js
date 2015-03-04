@@ -164,7 +164,7 @@ Template.cart.events({
 
         var contactInfo = {};
 
-        contactInfo.phoneNumber = event.target.intputPhoneNumber.value;
+        contactInfo.phoneNumber = event.target.phoneNumber.value;
         contactInfo.email=event.target.inputEmail.value;
         contactInfo.messageToKitchen = event.target.messageToKitchen.value;
         contactInfo.contactName = event.target.contactName.value;
