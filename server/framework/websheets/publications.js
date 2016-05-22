@@ -71,3 +71,9 @@ Meteor.publish('ordersMeta', function(UniqueId,orgname)
 	return OrdersMeta.find({UniqueId: UniqueId,orgname:orgname });
 
 });	
+
+Meteor.publish('workhours', function(orgname)
+{
+	return WorkHours.find({orgname:orgname});
+
+});
